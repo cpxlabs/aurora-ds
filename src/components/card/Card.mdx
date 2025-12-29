@@ -1,0 +1,58 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as CardStories from './Card.stories';
+
+<Meta of={CardStories} />
+
+<Title>Card</Title>
+<Subtitle>Cartão componível com variações de mídia, estatísticas e ações</Subtitle>
+
+<Description>
+`Card` é um contêiner flexível construído com **CSS Modules** e design tokens (ver `theme.css`).
+
+- Suporte a mídia com `CardMedia` (cobre radius superior)
+- Cabeçalho, conteúdo e rodapé em layout de coluna
+- Badges com tons `neutral` | `positive` | `negative`
+- Pode ser polimórfico via `asChild` (usa Radix Slot)
+</Description>
+
+## Exemplos
+
+<Canvas of={CardStories.ImageCards} />
+<Canvas of={CardStories.StatisticsCards} />
+<Canvas of={CardStories.InteractiveCard} />
+
+<Source
+  language="tsx"
+  code={`import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+  CardMedia,
+  CardBadge,
+  Button,
+} from '@sua-scope/my-ui';
+
+export function Showcase() {
+  return (
+    <Card style={{ maxWidth: 320 }}>
+      <CardMedia src="https://images.unsplash.com/photo-1504870712357-65ea720d6078?auto=format&fit=crop&w=600&q=80" alt="Ferris wheel" />
+      <CardHeader>
+        <CardTitle>Discover More</CardTitle>
+        <CardDescription>
+          Explore amazing features with beautiful imagery and compelling descriptions.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <CardBadge tone="positive">+12.5%</CardBadge>
+      </CardContent>
+      <CardFooter>
+        <Button>Learn More</Button>
+      </CardFooter>
+    </Card>
+  );
+}`}
+/>

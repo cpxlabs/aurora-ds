@@ -1,0 +1,40 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Primary, Controls, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+<Title>Button</Title>
+<Subtitle>Botão básico com variantes (solid/ghost)</Subtitle>
+
+<Description>
+O `Button` é um componente simples baseado em `<button>` e estilizado via **CSS Modules**.
+
+- Variantes: `solid` (padrão) e `ghost`
+- Acessibilidade: `:focus-visible` com token `--ui-focus`
+</Description>
+
+## Playground
+
+<Primary />
+<Controls />
+
+## Exemplos
+
+<Canvas of={ButtonStories.Solid} />
+<Canvas of={ButtonStories.Ghost} />
+<Canvas of={ButtonStories.Disabled} />
+
+<Source
+  language="tsx"
+  code={`import { Button } from '@sua-scope/my-ui';
+
+export function Actions() {
+  return (
+    <div style={{ display: 'flex', gap: 8 }}>
+      <Button variant="ghost">Cancelar</Button>
+      <Button>Salvar</Button>
+    </div>
+  );
+}`}
+/>

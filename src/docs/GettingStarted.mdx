@@ -1,0 +1,54 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as GettingStartedStories from './GettingStarted.stories';
+
+<Meta of={GettingStartedStories} />
+
+<Title>my-ui</Title>
+<Subtitle>Biblioteca de componentes React + TypeScript + Radix + CSS Modules</Subtitle>
+
+<Description>
+Este Storybook documenta os componentes da biblioteca **my-ui**.
+
+### Instalação
+
+```bash
+npm i @sua-scope/my-ui
+```
+
+### Importação
+
+> A biblioteca exporta tudo no **root**.
+
+```ts
+import { Button, Dialog } from '@sua-scope/my-ui';
+```
+
+### Dark mode
+
+Use o atributo **`data-theme="dark"`** no elemento `<html>` (ou em um wrapper):
+
+```html
+<html data-theme="dark"></html>
+```
+
+No Storybook, você pode alternar o tema no botão **Tema** (Light/Dark) na toolbar.
+</Description>
+
+## Exemplo rápido
+
+<Canvas of={GettingStartedStories.QuickExample} />
+
+<Source
+  language="tsx"
+  code={`import { Button } from '@sua-scope/my-ui';
+
+export function Example() {
+  return (
+    <>
+      <Button>Primário</Button>
+      <Button variant="ghost">Ghost</Button>
+    </>
+  );
+}`}
+/>

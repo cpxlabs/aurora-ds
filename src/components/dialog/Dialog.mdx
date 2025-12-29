@@ -1,0 +1,47 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as DialogStories from './Dialog.stories';
+
+<Meta of={DialogStories} />
+
+<Title>Dialog</Title>
+<Subtitle>Modal acessível usando Radix UI</Subtitle>
+
+<Description>
+`Dialog` é um wrapper em cima do **Radix Dialog**.
+
+- Overlay + Content estilizados via **CSS Modules**
+- Portal/Focus-trap já vem do Radix
+- Inclui `Close` com botão "×" por padrão
+</Description>
+
+## Exemplo (composição)
+
+<Canvas of={DialogStories.Basic} />
+
+<Source
+  language="tsx"
+  code={`import {
+  Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription,
+  Button
+} from '@sua-scope/my-ui';
+
+export function ConfirmDialog() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button>Abrir</Button>
+      </DialogTrigger>
+
+      <DialogContent>
+        <DialogTitle>Confirmação</DialogTitle>
+        <DialogDescription>Tem certeza?</DialogDescription>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
+          <Button variant="ghost">Cancelar</Button>
+          <Button>Confirmar</Button>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}`}
+/>

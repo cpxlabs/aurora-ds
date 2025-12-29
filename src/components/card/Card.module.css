@@ -1,0 +1,169 @@
+/* Card Component Styles (CSS Modules) */
+
+.card {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--ui-shadow);
+  transition: box-shadow 120ms ease, transform 120ms ease, border-color 120ms ease;
+}
+
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.16);
+  border-color: rgba(15, 23, 42, 0.16);
+}
+
+.header {
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-template-rows: auto auto;
+  align-items: start;
+  gap: 0.375rem;
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  container-type: inline-size;
+  container-name: card-header;
+}
+
+.header.borderBottom {
+  padding-bottom: 1.5rem;
+}
+
+.header:has([data-slot="card-action"]) {
+  grid-template-columns: 1fr auto;
+}
+
+.title {
+  line-height: 1.5;
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-medium);
+}
+
+.description {
+  color: var(--muted-foreground);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.action {
+  grid-column-start: 2;
+  grid-row: 1 / span 2;
+  align-self: start;
+  justify-self: end;
+}
+
+.content {
+  padding: 0 1.5rem;
+}
+
+.content:last-child {
+  padding-bottom: 1.5rem;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.footer.borderTop {
+  padding-top: 1.5rem;
+}
+
+/* Media */
+.media {
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0.75rem 0.75rem 0 0;
+  background: var(--muted);
+}
+
+.mediaImage {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: var(--muted);
+  color: var(--muted-foreground);
+}
+
+.badgePositive {
+  color: #16a34a;
+  background: rgba(22, 163, 74, 0.12);
+  border-color: rgba(22, 163, 74, 0.18);
+}
+
+.badgeNegative {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.18);
+}
+
+/* Helpers for stories */
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted-foreground);
+  font-size: 0.88rem;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--foreground);
+  line-height: 1.2;
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+}
+
+.actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 4px 0 0;
+}

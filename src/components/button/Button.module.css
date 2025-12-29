@@ -1,0 +1,41 @@
+.button {
+  appearance: none;
+  border: 1px solid var(--ui-border);
+  cursor: pointer;
+  border-radius: var(--ui-radius);
+  padding: 10px 14px;
+  font-weight: 600;
+  line-height: 1;
+  transition: transform 120ms ease, background-color 120ms ease, opacity 120ms ease, border-color 120ms ease;
+
+  background: var(--ui-primary);
+  color: var(--ui-primary-fg);
+}
+
+.button:hover {
+  background: var(--ui-primary-hover);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--ui-focus);
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Variante "ghost" opcional */
+.ghost {
+  background: transparent;
+  color: var(--ui-fg);
+}
+
+.ghost:hover {
+  background: var(--ui-surface-2);
+}
