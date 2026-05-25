@@ -22,11 +22,11 @@ export const TokensApplied: Story = {
                 minWidth: 320,
             }}
         >
-            <div style={{ fontWeight: 700 }}>Surface usando tokens</div>
+            <div style={{ fontWeight: 700 }}>Superfície usando tokens</div>
             <div style={{ opacity: 0.85 }}>Troque o tema na toolbar do Storybook.</div>
             <div style={{ display: 'flex', gap: 10 }}>
                 <Button>Solid</Button>
-                <Button variant="ghost">Ghost</Button>
+                <Button variant="ghost">Secundário</Button>
             </div>
         </div>
     ),

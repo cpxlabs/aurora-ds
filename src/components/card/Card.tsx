@@ -39,6 +39,19 @@ export const CardDescription = React.forwardRef<
 ));
 CardDescription.displayName = "CardDescription";
 
+export const CardAction = React.forwardRef<
+    HTMLDivElement,
+    React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+    <div
+        ref={ref}
+        data-slot="card-action"
+        className={clsx(styles.action, className)}
+        {...props}
+    />
+));
+CardAction.displayName = "CardAction";
+
 export const CardContent = React.forwardRef<
     HTMLDivElement,
     React.HTMLAttributes<HTMLDivElement>
@@ -55,7 +68,7 @@ export const CardFooter = React.forwardRef<
 ));
 CardFooter.displayName = "CardFooter";
 
-type CardMediaProps = Omit<React.ImgHTMLAttributes<HTMLImageElement>, "className"> & {
+export type CardMediaProps = Omit<React.ImgHTMLAttributes<HTMLImageElement>, "className"> & {
     className?: string;
     imageClassName?: string;
 };
@@ -69,7 +82,7 @@ export const CardMedia = React.forwardRef<HTMLDivElement, CardMediaProps>(
 );
 CardMedia.displayName = "CardMedia";
 
-type CardBadgeProps = React.HTMLAttributes<HTMLSpanElement> & {
+export type CardBadgeProps = React.HTMLAttributes<HTMLSpanElement> & {
     tone?: "neutral" | "positive" | "negative";
 };
 

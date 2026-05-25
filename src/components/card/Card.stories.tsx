@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import {
     Card,
+    CardAction,
     CardBadge,
     CardContent,
     CardDescription,
@@ -17,6 +18,7 @@ const meta: Meta<typeof Card> = {
     component: Card,
     subcomponents: {
         CardHeader,
+        CardAction,
         CardTitle,
         CardDescription,
         CardContent,
@@ -47,24 +49,24 @@ type Story = StoryObj<typeof Card>;
 const imageCards = [
     {
         title: "Headline Label",
-        description: "Write an amazing description in this dedicated card section. Each word counts.",
-        cta: "Button",
+        description: "Escreva uma descrição marcante nesta seção dedicada do card. Cada palavra importa.",
+        cta: "Botão",
     },
     {
-        title: "Discover More",
+        title: "Descubra mais",
         description:
-            "Explore amazing features with beautiful imagery and compelling descriptions that engage users.",
-        cta: "Learn More",
+            "Explore recursos com imagens bonitas e descrições envolventes para destacar sua interface.",
+        cta: "Saiba mais",
     },
     {
-        title: "Get Started",
-        description: "Begin your journey with our comprehensive solutions designed to meet your needs.",
-        cta: "Start Now",
+        title: "Comece agora",
+        description: "Inicie sua jornada com soluções pensadas para diferentes cenários de produto.",
+        cta: "Começar",
     },
 ];
 
 export const ImageCards: Story = {
-    name: "Image Cards",
+    name: "Cards com imagem",
     render: () => (
         <div
             style={{
@@ -93,7 +95,7 @@ export const ImageCards: Story = {
 };
 
 export const StatisticsCards: Story = {
-    name: "Statistics Cards",
+    name: "Cards de estatísticas",
     render: () => (
         <div
             style={{
@@ -145,7 +147,7 @@ export const StatisticsCards: Story = {
 };
 
 export const InteractiveCard: Story = {
-    name: "Interactive Card",
+    name: "Card interativo",
     render: () => (
         <Card style={{ maxWidth: 720 }}>
             <CardHeader style={{ display: "flex", alignItems: "center", gap: 12 }}>
@@ -154,11 +156,11 @@ export const InteractiveCard: Story = {
                     <CardTitle style={{ margin: 0 }}>Headline Label</CardTitle>
                     <CardDescription style={{ margin: 0 }}>Subtitle text</CardDescription>
                 </div>
-                <div className={styles.actions}>
+                <CardAction className={styles.actions}>
                     <Button variant="ghost" style={{ padding: "8px 12px" }} aria-label="Save">
-                        Save
+                        Salvar
                     </Button>
-                </div>
+                </CardAction>
             </CardHeader>
 
             <CardContent>

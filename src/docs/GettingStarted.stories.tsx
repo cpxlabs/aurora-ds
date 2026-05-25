@@ -12,7 +12,7 @@ export const QuickExample: Story = {
     render: () => (
         <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
             <Button>Primário</Button>
-            <Button variant="ghost">Ghost</Button>
+            <Button variant="ghost">Secundário</Button>
         </div>
     ),
 };

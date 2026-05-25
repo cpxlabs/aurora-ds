@@ -5,22 +5,24 @@ import * as ThemingStories from './Theming.stories';
 <Meta of={ThemingStories} />
 
 <Title>Theming</Title>
-<Subtitle>Light/Dark via CSS variables e `[data-theme="dark"]`</Subtitle>
+<Subtitle>Temas claro e escuro com variáveis CSS do Aurora DS</Subtitle>
 
 <Description>
-Os componentes usam tokens definidos em `src/theme.css` (CSS variables). O tema é controlado por atributo:
+Os componentes consomem os tokens definidos em `src/theme.css`. A troca de tema é feita por atributo:
 
-- **Light**: padrão em `:root`
-- **Dark**: sobrescrito em **`[data-theme="dark"]`**
+- **Claro**: valores padrão em `:root`
+- **Escuro**: sobrescritas em `[data-theme="dark"]`
 
-Isso permite trocar o tema sem depender de Tailwind/Styled Components.
+Isso mantém o tema independente de framework para as aplicações consumidoras.
 </Description>
 
-## Como alternar tema no app
+## Como alternar o tema em um app
 
 <Source
   language="tsx"
-  code={`export function setTheme(theme: 'light' | 'dark') {
+  code={`import "@cpxlabs/aurora-ds/theme.css";
+
+export function setTheme(theme: 'light' | 'dark') {
   const root = document.documentElement;
   if (theme === 'dark') root.setAttribute('data-theme', 'dark');
   else root.removeAttribute('data-theme');
