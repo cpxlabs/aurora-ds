@@ -5,13 +5,13 @@ import * as ButtonStories from './Button.stories';
 <Meta of={ButtonStories} />
 
 <Title>Button</Title>
-<Subtitle>Botão básico com variantes (solid/ghost)</Subtitle>
+<Subtitle>Botão de ação principal com variantes solid e ghost</Subtitle>
 
 <Description>
-O `Button` é um componente simples baseado em `<button>` e estilizado via **CSS Modules**.
+`Button` é um componente de ação leve construído sobre o elemento nativo `<button>`.
 
-- Variantes: `solid` (padrão) e `ghost`
-- Acessibilidade: `:focus-visible` com token `--ui-focus`
+- Variantes: `solid` e `ghost`
+- Acessibilidade: os estilos de `:focus-visible` usam o token compartilhado `--ui-focus`
 </Description>
 
 ## Playground
@@ -27,9 +27,9 @@ O `Button` é um componente simples baseado em `<button>` e estilizado via **CSS
 
 <Source
   language="tsx"
-  code={`import { Button } from '@sua-scope/my-ui';
+  code={`import { Button } from '@cpxlabs/aurora-ds';
 
-export function Actions() {
+export function Acoes() {
   return (
     <div style={{ display: 'flex', gap: 8 }}>
       <Button variant="ghost">Cancelar</Button>

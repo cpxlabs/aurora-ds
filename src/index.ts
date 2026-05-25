@@ -1,4 +1,4 @@
-// Carrega tokens (light/dark) e permite que os componentes usem CSS variables.
+// Carrega tokens de tema e permite que os componentes usem variáveis CSS.
 import "./theme.css";
 
 export * from "./components/button";

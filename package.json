@@ -1,7 +1,8 @@
 {
-  "name": "@sua-scope/my-ui",
+  "name": "@cpxlabs/aurora-ds",
   "version": "0.1.0",
   "private": false,
+  "description": "Biblioteca de componentes React Aurora DS construída com TypeScript, Vite e Radix UI.",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -11,7 +12,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./theme.css": "./dist/theme.css"
   },
   "files": [
     "dist"
@@ -23,10 +25,13 @@
     "dev": "vite",
     "build": "vite build",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "lint": "echo \"(adicione eslint se quiser)\"",
+    "lint": "eslint . --max-warnings=0",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "packageManager": "pnpm@11.3.0",
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18"
@@ -44,11 +49,20 @@
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
+    "@eslint/js": "^10.0.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.6.0",
+    "jsdom": "^29.1.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "storybook": "^10.1.11",
     "typescript": "^5.7.2",
+    "typescript-eslint": "^8.59.1",
     "vite": "^6.0.7",
-    "vite-plugin-dts": "^4.5.0"
+    "vite-plugin-dts": "^4.5.0",
+    "vitest": "^4.1.7"
   }
 }

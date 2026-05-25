@@ -5,15 +5,15 @@ import * as CardStories from './Card.stories';
 <Meta of={CardStories} />
 
 <Title>Card</Title>
-<Subtitle>Cartão componível com variações de mídia, estatísticas e ações</Subtitle>
+<Subtitle>Layouts componíveis de card para mídia, estatísticas e ações</Subtitle>
 
 <Description>
-`Card` é um contêiner flexível construído com **CSS Modules** e design tokens (ver `theme.css`).
+`Card` é um contêiner flexível construído com CSS Modules e tokens do Aurora DS.
 
-- Suporte a mídia com `CardMedia` (cobre radius superior)
-- Cabeçalho, conteúdo e rodapé em layout de coluna
-- Badges com tons `neutral` | `positive` | `negative`
-- Pode ser polimórfico via `asChild` (usa Radix Slot)
+- Use `CardMedia` para cabeçalhos com imagem
+- Monte layouts com `CardHeader`, `CardContent`, `CardFooter` e `CardAction`
+- Aplique tons de badge com `neutral`, `positive` e `negative`
+- Renderize de forma polimórfica com `asChild`
 </Description>
 
 ## Exemplos
@@ -29,28 +29,29 @@ import * as CardStories from './Card.stories';
   CardHeader,
   CardTitle,
   CardDescription,
+  CardAction,
   CardContent,
   CardFooter,
   CardMedia,
   CardBadge,
   Button,
-} from '@sua-scope/my-ui';
+} from '@cpxlabs/aurora-ds';
 
-export function Showcase() {
+export function Vitrine() {
   return (
     <Card style={{ maxWidth: 320 }}>
       <CardMedia src="https://images.unsplash.com/photo-1504870712357-65ea720d6078?auto=format&fit=crop&w=600&q=80" alt="Ferris wheel" />
       <CardHeader>
-        <CardTitle>Discover More</CardTitle>
+        <CardTitle>Descubra mais</CardTitle>
         <CardDescription>
-          Explore amazing features with beautiful imagery and compelling descriptions.
+          Explore recursos com imagens marcantes e descrições objetivas.
         </CardDescription>
       </CardHeader>
       <CardContent>
         <CardBadge tone="positive">+12.5%</CardBadge>
       </CardContent>
       <CardFooter>
-        <Button>Learn More</Button>
+        <Button>Saiba mais</Button>
       </CardFooter>
     </Card>
   );

@@ -4,35 +4,36 @@ import * as GettingStartedStories from './GettingStarted.stories';
 
 <Meta of={GettingStartedStories} />
 
-<Title>my-ui</Title>
-<Subtitle>Biblioteca de componentes React + TypeScript + Radix + CSS Modules</Subtitle>
+<Title>Aurora DS</Title>
+<Subtitle>Componentes React com TypeScript, Vite, Radix UI e CSS Modules</Subtitle>
 
 <Description>
-Este Storybook documenta os componentes da biblioteca **my-ui**.
+Este Storybook documenta os componentes públicos do Aurora DS.
 
 ### Instalação
 
 ```bash
-npm i @sua-scope/my-ui
+pnpm add @cpxlabs/aurora-ds
 ```
 
 ### Importação
 
-> A biblioteca exporta tudo no **root**.
+> Importe os componentes pelo pacote raiz e o tema uma vez a partir de `theme.css`.
 
 ```ts
-import { Button, Dialog } from '@sua-scope/my-ui';
+import "@cpxlabs/aurora-ds/theme.css";
+import { Button, Dialog } from '@cpxlabs/aurora-ds';
 ```
 
-### Dark mode
+### Modo escuro
 
-Use o atributo **`data-theme="dark"`** no elemento `<html>` (ou em um wrapper):
+Use o atributo `data-theme="dark"` no `<html>` ou em um wrapper:
 
 ```html
 <html data-theme="dark"></html>
 ```
 
-No Storybook, você pode alternar o tema no botão **Tema** (Light/Dark) na toolbar.
+No Storybook, você pode trocar o tema pelo controle **Tema** na toolbar.
 </Description>
 
 ## Exemplo rápido
@@ -41,13 +42,14 @@ No Storybook, você pode alternar o tema no botão **Tema** (Light/Dark) na tool
 
 <Source
   language="tsx"
-  code={`import { Button } from '@sua-scope/my-ui';
+  code={`import "@cpxlabs/aurora-ds/theme.css";
+import { Button } from '@cpxlabs/aurora-ds';
 
-export function Example() {
+export function Exemplo() {
   return (
     <>
       <Button>Primário</Button>
-      <Button variant="ghost">Ghost</Button>
+      <Button variant="ghost">Secundário</Button>
     </>
   );
 }`}

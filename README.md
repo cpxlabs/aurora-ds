@@ -1,18 +1,54 @@
-# my-ui (React + TypeScript + Radix + CSS Modules)
+# Aurora DS
 
-Biblioteca de componentes React usando **Radix UI** e **TypeScript**, construída com **Vite (library mode)**.
+Aurora DS é uma biblioteca de componentes React construída com TypeScript, Vite, Radix UI e CSS Modules.
+
+## Regra do repositório
+
+- Use sempre **português** em documentação, exemplos, textos de interface e comunicação relacionada a este repositório.
 
 ## Instalação
 
 ```bash
-npm i @sua-scope/my-ui
+pnpm add @cpxlabs/aurora-ds
+```
+
+Importe o arquivo de tema exportado uma vez no ponto de entrada da aplicação:
+
+```ts
+import "@cpxlabs/aurora-ds/theme.css";
 ```
 
 ## Uso
 
-> A biblioteca usa tokens via CSS variables e suporta dark mode com `[data-theme="dark"]`.
+```tsx
+import {
+  Button,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger,
+} from "@cpxlabs/aurora-ds";
 
-No seu app, defina o tema no `html` ou em um wrapper:
+export function Exemplo() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button>Abrir diálogo</Button>
+      </DialogTrigger>
+
+      <DialogContent>
+        <DialogTitle>Confirmar ação</DialogTitle>
+        <DialogDescription>
+          Os componentes Aurora DS usam variáveis CSS para aplicar tema.
+        </DialogDescription>
+      </DialogContent>
+    </Dialog>
+  );
+}
+```
+
+Para ativar o modo escuro, defina `data-theme="dark"` no `html` ou em um wrapper que contenha os componentes:
 
 ```html
 <html data-theme="dark">
@@ -20,53 +56,26 @@ No seu app, defina o tema no `html` ou em um wrapper:
 </html>
 ```
 
-Ou em React:
-
-```tsx
-// Ex.: toggler simples
-useEffect(() => {
-  document.documentElement.setAttribute("data-theme", "dark");
-}, []);
-```
-
-Componentes:
-
-```tsx
-import { Button, Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from "@sua-scope/my-ui";
-
-export function Example() {
-  return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button>Abrir</Button>
-      </DialogTrigger>
-
-      <DialogContent>
-        <DialogTitle>Olá!</DialogTitle>
-        <DialogDescription>Esse modal usa Radix + CSS Modules.</DialogDescription>
-        <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
-          <Button onClick={() => alert("ok")}>OK</Button>
-        </div>
-      </DialogContent>
-    </Dialog>
-  );
-}
-```
-
 ## Desenvolvimento
 
 ```bash
-npm install
-npm run build
-npm run typecheck
+pnpm install --ignore-scripts
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm build
+pnpm storybook
 ```
 
-## Estrutura
-- `src/theme.css`: tokens (light/dark) via CSS variables
-- `src/components/*`: componentes com CSS Modules
-- `src/index.ts`: exports no root
+## Estrutura do pacote
 
-## Docs em MDX
+- `src/components/*` contém os componentes públicos.
+- `src/theme.css` define os tokens compartilhados.
+- `src/index.ts` exporta a API pública.
+- `dist/` é gerado por `pnpm build` e é a única saída publicada.
 
-Este projeto inclui páginas de documentação em **MDX** dentro de `src/docs` e docs por componente em `*.docs.stories.mdx`.
+## Componentes atuais
 
+- `Button`
+- `Card`
+- `Dialog`

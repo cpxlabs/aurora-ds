@@ -8,15 +8,15 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
 };
 
-export function Button({ className, variant = "solid", ...props }: ButtonProps) {
-  return (
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, type = "button", variant = "solid", ...props }, ref) => (
     <button
-      className={clsx(
-        styles.button,
-        variant === "ghost" && styles.ghost,
-        className
-      )}
+      ref={ref}
+      type={type}
+      className={clsx(styles.button, variant === "ghost" && styles.ghost, className)}
       {...props}
     />
-  );
-}
+  )
+);
+
+Button.displayName = "Button";

@@ -11,30 +11,48 @@ export function Dialog(props: DialogProps) {
 }
 
 export const DialogTrigger = DialogPrimitive.Trigger;
+export const DialogClose = DialogPrimitive.Close;
 
-export function DialogContent({ className, children, ...props }: DialogContentProps) {
-  return (
-    <DialogPrimitive.Portal>
-      <DialogPrimitive.Overlay className={styles.overlay} />
-      <DialogPrimitive.Content className={clsx(styles.content, className)} {...props}>
-        {children}
-        <DialogPrimitive.Close className={styles.close} aria-label="Fechar">
-          ×
-        </DialogPrimitive.Close>
-      </DialogPrimitive.Content>
-    </DialogPrimitive.Portal>
-  );
-}
+export const DialogContent = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Content>,
+  DialogContentProps
+>(({ className, children, ...props }, ref) => (
+  <DialogPrimitive.Portal>
+    <DialogPrimitive.Overlay className={styles.overlay} />
+    <DialogPrimitive.Content
+      ref={ref}
+      className={clsx(styles.content, className)}
+      {...props}
+    >
+      {children}
+      <DialogPrimitive.Close className={styles.close} aria-label="Fechar diálogo">
+        <span aria-hidden="true">×</span>
+      </DialogPrimitive.Close>
+    </DialogPrimitive.Content>
+  </DialogPrimitive.Portal>
+));
+DialogContent.displayName = "DialogContent";
 
-export const DialogTitle = (
-  p: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
-) => <DialogPrimitive.Title {...p} className={clsx(styles.title, p.className)} />;
-
-export const DialogDescription = (
-  p: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
-) => (
-  <DialogPrimitive.Description
-    {...p}
-    className={clsx(styles.description, p.className)}
+export const DialogTitle = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Title>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
+>(({ className, ...props }, ref) => (
+  <DialogPrimitive.Title
+    ref={ref}
+    {...props}
+    className={clsx(styles.title, className)}
   />
-);
+));
+DialogTitle.displayName = "DialogTitle";
+
+export const DialogDescription = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Description>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
+>(({ className, ...props }, ref) => (
+  <DialogPrimitive.Description
+    ref={ref}
+    {...props}
+    className={clsx(styles.description, className)}
+  />
+));
+DialogDescription.displayName = "DialogDescription";

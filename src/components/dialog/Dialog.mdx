@@ -5,14 +5,14 @@ import * as DialogStories from './Dialog.stories';
 <Meta of={DialogStories} />
 
 <Title>Dialog</Title>
-<Subtitle>Modal acessível usando Radix UI</Subtitle>
+<Subtitle>Modal acessível construído sobre os primitivos do Radix UI</Subtitle>
 
 <Description>
-`Dialog` é um wrapper em cima do **Radix Dialog**.
+`Dialog` encapsula os primitivos de diálogo do Radix com os estilos do Aurora DS.
 
-- Overlay + Content estilizados via **CSS Modules**
-- Portal/Focus-trap já vem do Radix
-- Inclui `Close` com botão "×" por padrão
+- Overlay e conteúdo são estilizados com CSS Modules
+- Gerenciamento de foco e portal vêm do Radix
+- `DialogContent` inclui um botão de fechar padrão
 </Description>
 
 ## Exemplo (composição)
@@ -24,9 +24,9 @@ import * as DialogStories from './Dialog.stories';
   code={`import {
   Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription,
   Button
-} from '@sua-scope/my-ui';
+} from '@cpxlabs/aurora-ds';
 
-export function ConfirmDialog() {
+export function DialogoDeConfirmacao() {
   return (
     <Dialog>
       <DialogTrigger asChild>
