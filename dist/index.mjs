@@ -1,8 +1,8 @@
 import { jsx as t, jsxs as _ } from "react/jsx-runtime";
 import * as i from "react";
 import s from "clsx";
-import * as n from "@radix-ui/react-dialog";
 import { Slot as g } from "@radix-ui/react-slot";
+import * as n from "@radix-ui/react-dialog";
 const p = "_button_s4yje_1", f = "_ghost_s4yje_34", m = {
   button: p,
   ghost: f

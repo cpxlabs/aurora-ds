@@ -69,9 +69,9 @@ corepack pnpm storybook
 
 ## Estrutura do pacote
 
-- `/home/runner/work/aurora-ds/aurora-ds/src/components/*` contém os componentes públicos.
-- `/home/runner/work/aurora-ds/aurora-ds/src/theme.css` define os tokens compartilhados.
-- `/home/runner/work/aurora-ds/aurora-ds/src/index.ts` exporta a API pública.
+- `src/components/*` contém os componentes públicos.
+- `src/theme.css` define os tokens compartilhados.
+- `src/index.ts` exporta a API pública.
 - `dist/` é gerado por `pnpm build` e é a única saída publicada.
 
 ## Componentes atuais
