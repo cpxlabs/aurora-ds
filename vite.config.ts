@@ -9,6 +9,12 @@ export default defineConfig({
     dts({
       insertTypesEntry: true,
       include: ["src/"],
+      exclude: [
+        "src/**/*.stories.tsx",
+        "src/**/*.test.tsx",
+        "src/docs/**",
+        "src/test/**",
+      ],
     }),
   ],
   test: {

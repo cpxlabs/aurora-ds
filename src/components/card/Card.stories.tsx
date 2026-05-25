@@ -157,7 +157,7 @@ export const InteractiveCard: Story = {
                     <CardDescription style={{ margin: 0 }}>Subtitle text</CardDescription>
                 </div>
                 <CardAction className={styles.actions}>
-                    <Button variant="ghost" style={{ padding: "8px 12px" }} aria-label="Save">
+                    <Button variant="ghost" style={{ padding: "8px 12px" }} aria-label="Salvar">
                         Salvar
                     </Button>
                 </CardAction>
