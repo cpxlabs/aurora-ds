@@ -1,2 +1,3 @@
+# Permite o binário nativo do esbuild durante a instalação para viabilizar o build do Vite.
 allowBuilds:
   esbuild: true

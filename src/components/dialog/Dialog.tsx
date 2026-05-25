@@ -26,7 +26,7 @@ export const DialogContent = React.forwardRef<
     >
       {children}
       <DialogPrimitive.Close className={styles.close} aria-label="Fechar diálogo">
-        ×
+        <span aria-hidden="true">×</span>
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>
   </DialogPrimitive.Portal>
