@@ -17,6 +17,10 @@
   --ui-primary-fg: #ffffff;
   --ui-focus: #3b82f6;
 
+  --ui-text-sm: 0.875rem;
+  --ui-text-base: 1rem;
+  --ui-text-xl: 1.5rem;
+
   --ui-positive: #15803d;
   --ui-positive-surface: rgba(21, 128, 61, 0.12);
   --ui-positive-border: rgba(21, 128, 61, 0.22);
