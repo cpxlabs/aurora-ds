@@ -4,8 +4,7 @@ import styles from "./Button.module.css";
 
 export type ButtonVariant = "solid" | "ghost";
 
-export type ButtonProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type"> & {
-  type?: "button" | "submit" | "reset";
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
 };
 
