@@ -2,13 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '../components/button/Button';
 
 const meta: Meta = {
-    title: 'Docs/Getting Started',
+    title: 'Docs/Primeiros passos',
 };
 
 export default meta;
 type Story = StoryObj;
 
-export const QuickExample: Story = {
+export const ExemploRapido: Story = {
     render: () => (
         <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
             <Button>Primário</Button>

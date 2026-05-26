@@ -12,7 +12,15 @@ Aurora DS é uma biblioteca de componentes React construída com TypeScript, Vit
 pnpm add @cpxlabs/aurora-ds
 ```
 
-Importe o arquivo de tema exportado uma vez no ponto de entrada da aplicação:
+## Consumo do pacote
+
+Ao importar os componentes pelo pacote raiz, os tokens de tema já são carregados automaticamente:
+
+```ts
+import { Button, Dialog } from "@cpxlabs/aurora-ds";
+```
+
+Se você precisar expor somente os estilos de tema de forma explícita, também pode usar a entrada dedicada:
 
 ```ts
 import "@cpxlabs/aurora-ds/theme.css";
@@ -51,13 +59,12 @@ export function Exemplo() {
 ## Documentação dos componentes
 
 - Rode `pnpm storybook` para abrir a documentação interativa localmente.
-- Consulte as páginas **Docs/Getting Started**, **Docs/Theming** e **Docs/Como usar componentes** no Storybook.
+- Consulte as páginas **Docs/Primeiros passos**, **Docs/Temas** e **Docs/Como usar componentes** no Storybook.
 - Cada componente também possui sua própria página com playground, controles e exemplos prontos.
 
 ### Padrão recomendado de consumo
 
 ```tsx
-import "@cpxlabs/aurora-ds/theme.css";
 import {
   Alert,
   AlertDescription,
@@ -92,6 +99,59 @@ export function ExemploDeTela() {
         </Alert>
       </CardContent>
     </Card>
+  );
+}
+```
+
+## i18n
+
+Os textos internos padrão da biblioteca podem ser traduzidos com `AuroraI18nProvider`.
+
+Locales disponíveis:
+
+- `pt_br`
+- `es`
+- `eng`
+
+```tsx
+import {
+  AuroraI18nProvider,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  Spinner,
+} from "@cpxlabs/aurora-ds";
+
+export function ExemploComI18n() {
+  return (
+    <AuroraI18nProvider locale="eng">
+      <Dialog open>
+        <DialogContent>
+          <DialogTitle>Confirmation</DialogTitle>
+          <DialogDescription>Check the translated close button label.</DialogDescription>
+        </DialogContent>
+      </Dialog>
+
+      <Spinner />
+    </AuroraI18nProvider>
+  );
+}
+```
+
+Você também pode sobrescrever mensagens específicas:
+
+```tsx
+import { AuroraI18nProvider, Progress } from "@cpxlabs/aurora-ds";
+
+export function Upload() {
+  return (
+    <AuroraI18nProvider
+      locale="pt_br"
+      messages={{ progressLabel: "Progresso do upload" }}
+    >
+      <Progress value={48} />
+    </AuroraI18nProvider>
   );
 }
 ```

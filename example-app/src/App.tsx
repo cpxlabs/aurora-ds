@@ -198,7 +198,7 @@ export function App() {
               <CardContent>
                 <form onSubmit={handleEnviar} className="form">
                   <div className="campo">
-                    <label htmlFor="nome">Nome completo</label>
+                    <Label htmlFor="nome">Nome completo</Label>
                     <Input
                       id="nome"
                       placeholder="Seu nome"
@@ -208,7 +208,7 @@ export function App() {
                     />
                   </div>
                   <div className="campo">
-                    <label htmlFor="email">E-mail</label>
+                    <Label htmlFor="email">E-mail</Label>
                     <Input
                       id="email"
                       type="email"
@@ -219,7 +219,7 @@ export function App() {
                     />
                   </div>
                   <div className="campo">
-                    <label htmlFor="mensagem">Mensagem</label>
+                    <Label htmlFor="mensagem">Mensagem</Label>
                     <Textarea
                       id="mensagem"
                       placeholder="Descreva sua dúvida ou sugestão…"

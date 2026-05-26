@@ -35,7 +35,7 @@ const meta: Meta<typeof Card> = {
     argTypes: {
         asChild: {
             control: "boolean",
-            description: "Render the card as a Slot (polymorphic)",
+            description: "Renderiza o card como Slot (polimórfico)",
         },
         className: {
             control: false,
@@ -46,11 +46,23 @@ const meta: Meta<typeof Card> = {
 export default meta;
 type Story = StoryObj<typeof Card>;
 
+const currencyFormatter = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+});
+
+const numberFormatter = new Intl.NumberFormat("pt-BR");
+
+const percentFormatter = new Intl.NumberFormat("pt-BR", {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+});
+
 const imageCards = [
     {
-        title: "Headline Label",
+        title: "Destaque principal",
         description: "Escreva uma descrição marcante nesta seção dedicada do card. Cada palavra importa.",
-        cta: "Botão",
+        cta: "Explorar",
     },
     {
         title: "Descubra mais",
@@ -106,39 +118,39 @@ export const StatisticsCards: Story = {
         >
             <Card>
                 <CardHeader className={styles.metaRow}>
-                    <span>Total Revenue</span>
+                    <span>Receita total</span>
                 </CardHeader>
                 <CardContent>
-                    <span className={styles.statValue}>$45,231.89</span>
+                    <span className={styles.statValue}>{currencyFormatter.format(45231.89)}</span>
                     <div className={styles.metaRow}>
                         <CardBadge tone="positive">+20.1%</CardBadge>
-                        <span className={styles.statLabel}>from last month</span>
+                        <span className={styles.statLabel}>em relação ao mês anterior</span>
                     </div>
                 </CardContent>
             </Card>
 
             <Card>
                 <CardHeader className={styles.metaRow}>
-                    <span>Active Users</span>
+                    <span>Usuários ativos</span>
                 </CardHeader>
                 <CardContent>
-                    <span className={styles.statValue}>2,350</span>
+                    <span className={styles.statValue}>{numberFormatter.format(2350)}</span>
                     <div className={styles.metaRow}>
                         <CardBadge tone="positive">+100%</CardBadge>
-                        <span className={styles.statLabel}>boost everything</span>
+                        <span className={styles.statLabel}>crescimento acima da meta</span>
                     </div>
                 </CardContent>
             </Card>
 
             <Card>
                 <CardHeader className={styles.metaRow}>
-                    <span>Conversion Rate</span>
+                    <span>Taxa de conversão</span>
                 </CardHeader>
                 <CardContent>
-                    <span className={styles.statValue}>12.5%</span>
+                    <span className={styles.statValue}>{`${percentFormatter.format(12.5)}%`}</span>
                     <div className={styles.metaRow}>
                         <CardBadge tone="negative">-4.3%</CardBadge>
-                        <span className={styles.statLabel}>from last week</span>
+                        <span className={styles.statLabel}>em relação à última semana</span>
                     </div>
                 </CardContent>
             </Card>
@@ -153,8 +165,8 @@ export const InteractiveCard: Story = {
             <CardHeader style={{ display: "flex", alignItems: "center", gap: 12 }}>
                 <div className={styles.avatar}>H</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                    <CardTitle style={{ margin: 0 }}>Headline Label</CardTitle>
-                    <CardDescription style={{ margin: 0 }}>Subtitle text</CardDescription>
+                    <CardTitle style={{ margin: 0 }}>Resumo semanal</CardTitle>
+                    <CardDescription style={{ margin: 0 }}>Atualização do painel da equipe</CardDescription>
                 </div>
                 <CardAction className={styles.actions}>
                     <Button variant="ghost" style={{ padding: "8px 12px" }} aria-label="Salvar">
@@ -173,7 +185,7 @@ export const InteractiveCard: Story = {
             <div className={styles.divider} />
 
             <CardFooter style={{ width: "100%" }}>
-                <Button style={{ width: "100%" }}>Button</Button>
+                <Button style={{ width: "100%" }}>Abrir detalhes</Button>
             </CardFooter>
         </Card>
     ),

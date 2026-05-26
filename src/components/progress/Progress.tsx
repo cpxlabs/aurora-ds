@@ -1,6 +1,7 @@
 import * as React from "react";
 import clsx from "clsx";
 import styles from "./Progress.module.css";
+import { useAuroraI18n } from "../../i18n";
 
 export type ProgressTone = "neutral" | "positive" | "negative" | "warning";
 
@@ -14,8 +15,10 @@ export type ProgressProps = Omit<React.HTMLAttributes<HTMLDivElement>, "children
 };
 
 export const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
-  ({ value = 0, tone = "neutral", label = "Progresso", className, ...props }, ref) => {
+  ({ value = 0, tone = "neutral", label, className, ...props }, ref) => {
+    const { progressLabel } = useAuroraI18n();
     const clamped = Math.min(100, Math.max(0, value));
+    const resolvedLabel = label ?? progressLabel;
     return (
       <div
         ref={ref}
@@ -23,7 +26,7 @@ export const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
         aria-valuenow={clamped}
         aria-valuemin={0}
         aria-valuemax={100}
-        aria-label={label}
+        aria-label={resolvedLabel}
         className={clsx(styles.track, className)}
         {...props}
       >
