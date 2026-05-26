@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "../../src/theme.css";
+import "@aurora-ds-theme";
 import "./App.css";
 import { App } from "./App";
 
