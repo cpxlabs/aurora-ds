@@ -389,7 +389,7 @@ export function App() {
       <footer className="rodape">
         <p>
           Aurora DS · Biblioteca de componentes React &nbsp;
-          <Badge size="sm">v0.1.0</Badge>
+          <Badge size="sm">v1.0.0</Badge>
         </p>
       </footer>
     </div>

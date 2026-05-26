@@ -1,0 +1,100 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as ComponentsUsageStories from './ComponentsUsage.stories';
+
+<Meta of={ComponentsUsageStories} />
+
+<Title>Como usar componentes</Title>
+<Subtitle>Padrões práticos para montar interfaces com o Aurora DS</Subtitle>
+
+<Description>
+Use os componentes do Aurora DS pelo pacote raiz e monte a interface por composição.
+
+- importe `@cpxlabs/aurora-ds/theme.css` uma vez na aplicação;
+- reutilize componentes compostos como `Card`, `Alert`, `Tabs` e `Dialog`;
+- prefira manter `Label`, `Input`, `Select`, `Checkbox` e `Switch` conectados por `id` e `htmlFor`.
+</Description>
+
+## Fluxo básico
+
+<Source
+  language="tsx"
+  code={`import "@cpxlabs/aurora-ds/theme.css";
+import {
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Input,
+  Label,
+} from "@cpxlabs/aurora-ds";
+
+export function LoginCard() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Acessar conta</CardTitle>
+        <CardDescription>Monte a tela combinando componentes públicos.</CardDescription>
+      </CardHeader>
+
+      <CardContent style={{ display: "grid", gap: 12 }}>
+        <div style={{ display: "grid", gap: 6 }}>
+          <Label htmlFor="email">E-mail</Label>
+          <Input id="email" type="email" placeholder="voce@empresa.com" />
+        </div>
+
+        <Button>Entrar</Button>
+      </CardContent>
+    </Card>
+  );
+}`}
+/>
+
+## Ações rápidas
+
+<Canvas of={ComponentsUsageStories.AcaoRapida} />
+
+## Formulários
+
+<Canvas of={ComponentsUsageStories.FormularioSimples} />
+
+## Composição de layout e feedback
+
+<Canvas of={ComponentsUsageStories.ComposicaoComCard} />
+
+<Source
+  language="tsx"
+  code={`import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@cpxlabs/aurora-ds";
+
+export function EstadoDeSucesso() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Pedido confirmado</CardTitle>
+        <CardDescription>Os componentes compartilham tokens visuais do mesmo tema.</CardDescription>
+      </CardHeader>
+
+      <CardContent style={{ display: "grid", gap: 12 }}>
+        <Alert tone="positive">
+          <AlertTitle>Pagamento aprovado</AlertTitle>
+          <AlertDescription>Envio liberado para separação no estoque.</AlertDescription>
+        </Alert>
+
+        <Button>Acompanhar pedido</Button>
+      </CardContent>
+    </Card>
+  );
+}`}
+/>

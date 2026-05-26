@@ -1,8 +1,23 @@
 {
   "name": "@cpxlabs/aurora-ds",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": false,
   "description": "Biblioteca de componentes React Aurora DS construída com TypeScript, Vite e Radix UI.",
+  "keywords": [
+    "design-system",
+    "react",
+    "typescript",
+    "componentes",
+    "ui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cpxlabs/aurora-ds.git"
+  },
+  "homepage": "https://github.com/cpxlabs/aurora-ds#readme",
+  "bugs": {
+    "url": "https://github.com/cpxlabs/aurora-ds/issues"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -18,6 +33,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "sideEffects": [
     "**/*.css"
   ],

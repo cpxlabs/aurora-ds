@@ -48,6 +48,54 @@ export function Exemplo() {
 }
 ```
 
+## Documentação dos componentes
+
+- Rode `pnpm storybook` para abrir a documentação interativa localmente.
+- Consulte as páginas **Docs/Getting Started**, **Docs/Theming** e **Docs/Como usar componentes** no Storybook.
+- Cada componente também possui sua própria página com playground, controles e exemplos prontos.
+
+### Padrão recomendado de consumo
+
+```tsx
+import "@cpxlabs/aurora-ds/theme.css";
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Input,
+  Label,
+} from "@cpxlabs/aurora-ds";
+
+export function ExemploDeTela() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Entrar</CardTitle>
+        <CardDescription>Use componentes compostos para montar sua UI.</CardDescription>
+      </CardHeader>
+
+      <CardContent>
+        <Label htmlFor="email">E-mail</Label>
+        <Input id="email" type="email" placeholder="voce@empresa.com" />
+
+        <Button>Continuar</Button>
+
+        <Alert tone="positive">
+          <AlertTitle>Pronto</AlertTitle>
+          <AlertDescription>Os componentes compartilham o mesmo tema global.</AlertDescription>
+        </Alert>
+      </CardContent>
+    </Card>
+  );
+}
+```
+
 Para ativar o modo escuro, defina `data-theme="dark"` no `html` ou em um wrapper que contenha os componentes:
 
 ```html
@@ -72,7 +120,14 @@ pnpm storybook
 - `src/components/*` contém os componentes públicos.
 - `src/theme.css` define os tokens compartilhados.
 - `src/index.ts` exporta a API pública.
+- `src/docs/*` concentra a documentação geral exibida no Storybook.
 - `dist/` é gerado por `pnpm build` e é a única saída publicada.
+
+## Distribuição da V1
+
+- Versão atual do pacote: `1.0.0`
+- Artefatos publicados: `dist/index.mjs`, `dist/index.cjs`, `dist/index.d.ts` e `dist/theme.css`
+- Antes de publicar, execute `pnpm lint`, `pnpm typecheck`, `pnpm test` e `pnpm build`
 
 ## Componentes
 
