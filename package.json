@@ -29,7 +29,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "example": "pnpm --filter aurora-ds-example-app dev"
   },
   "packageManager": "pnpm@11.3.0",
   "peerDependencies": {
