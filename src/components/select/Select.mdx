@@ -1,0 +1,45 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Primary, Controls, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as SelectStories from './Select.stories';
+
+<Meta of={SelectStories} />
+
+<Title>Select</Title>
+<Subtitle>Campo de seleção nativo estilizado</Subtitle>
+
+<Description>
+`Select` é um wrapper do elemento nativo `<select>` com estilo consistente ao Design System.
+
+- Compatível com todos os atributos HTML nativos do `<select>`
+- Props `invalid` e `disabled` com estados visuais dedicados
+- Acessibilidade: usa o comportamento nativo do navegador
+</Description>
+
+## Playground
+
+<Primary />
+<Controls />
+
+## Exemplos
+
+<Canvas of={SelectStories.Padrao} />
+<Canvas of={SelectStories.Invalido} />
+<Canvas of={SelectStories.Desabilitado} />
+
+<Source
+  language="tsx"
+  code={`import { Label, Select } from '@cpxlabs/aurora-ds';
+
+export function CampoPais() {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+      <Label htmlFor="pais">País</Label>
+      <Select id="pais">
+        <option value="">Selecione um país</option>
+        <option value="br">Brasil</option>
+        <option value="pt">Portugal</option>
+      </Select>
+    </div>
+  );
+}`}
+/>

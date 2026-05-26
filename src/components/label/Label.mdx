@@ -1,0 +1,40 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Primary, Controls, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as LabelStories from './Label.stories';
+
+<Meta of={LabelStories} />
+
+<Title>Label</Title>
+<Subtitle>Rótulo acessível para campos de formulário</Subtitle>
+
+<Description>
+`Label` é um wrapper do elemento nativo `<label>` com estilo alinhado aos tokens do Aurora DS.
+
+- Use a prop `htmlFor` para associar o rótulo ao campo correspondente
+- A prop `invalid` aplica a cor de erro (`--ui-negative`)
+</Description>
+
+## Playground
+
+<Primary />
+<Controls />
+
+## Exemplos
+
+<Canvas of={LabelStories.Padrao} />
+<Canvas of={LabelStories.Invalido} />
+<Canvas of={LabelStories.ComHtmlFor} />
+
+<Source
+  language="tsx"
+  code={`import { Label, Input } from '@cpxlabs/aurora-ds';
+
+export function Campo() {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+      <Label htmlFor="email">E-mail</Label>
+      <Input id="email" type="email" placeholder="seu@email.com" />
+    </div>
+  );
+}`}
+/>

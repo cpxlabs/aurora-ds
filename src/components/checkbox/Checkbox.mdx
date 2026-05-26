@@ -1,0 +1,42 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Primary, Controls, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as CheckboxStories from './Checkbox.stories';
+
+<Meta of={CheckboxStories} />
+
+<Title>Checkbox</Title>
+<Subtitle>Caixa de seleção acessível construída com Radix UI</Subtitle>
+
+<Description>
+`Checkbox` é construído sobre `@radix-ui/react-checkbox` com estilo alinhado ao Aurora DS.
+
+- Totalmente acessível via teclado e leitores de tela
+- Suporta estados controlado e não controlado
+- Use junto com `Label` para associar um rótulo clicável
+</Description>
+
+## Playground
+
+<Primary />
+<Controls />
+
+## Exemplos
+
+<Canvas of={CheckboxStories.Padrao} />
+<Canvas of={CheckboxStories.Marcado} />
+<Canvas of={CheckboxStories.Desabilitado} />
+<Canvas of={CheckboxStories.ComRotulo} />
+
+<Source
+  language="tsx"
+  code={`import { Checkbox, Label } from '@cpxlabs/aurora-ds';
+
+export function AceitarTermos() {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+      <Checkbox id="termos" />
+      <Label htmlFor="termos">Aceito os termos de uso</Label>
+    </div>
+  );
+}`}
+/>

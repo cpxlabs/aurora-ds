@@ -1,0 +1,52 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Primary, Controls, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as TabsStories from './Tabs.stories';
+
+<Meta of={TabsStories} />
+
+<Title>Tabs</Title>
+<Subtitle>Navegação por abas acessível construída com Radix UI</Subtitle>
+
+<Description>
+`Tabs` é construído sobre `@radix-ui/react-tabs` com estilo alinhado ao Aurora DS.
+
+- Totalmente acessível via teclado (setas para navegar entre abas)
+- Suporta estados controlado e não controlado
+- Componentes: `Tabs`, `TabsList`, `TabsTrigger` e `TabsContent`
+</Description>
+
+## Playground
+
+<Primary />
+<Controls />
+
+## Exemplos
+
+<Canvas of={TabsStories.Padrao} />
+<Canvas of={TabsStories.ComAbaDesabilitada} />
+
+<Source
+  language="tsx"
+  code={`import { Tabs, TabsList, TabsTrigger, TabsContent } from '@cpxlabs/aurora-ds';
+
+export function NavegacaoAbas() {
+  return (
+    <Tabs defaultValue="perfil">
+      <TabsList>
+        <TabsTrigger value="perfil">Perfil</TabsTrigger>
+        <TabsTrigger value="seguranca">Segurança</TabsTrigger>
+        <TabsTrigger value="notificacoes">Notificações</TabsTrigger>
+      </TabsList>
+      <TabsContent value="perfil">
+        <p>Edite suas informações de perfil.</p>
+      </TabsContent>
+      <TabsContent value="seguranca">
+        <p>Gerencie senha e autenticação.</p>
+      </TabsContent>
+      <TabsContent value="notificacoes">
+        <p>Configure suas preferências de notificação.</p>
+      </TabsContent>
+    </Tabs>
+  );
+}`}
+/>

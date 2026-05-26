@@ -74,8 +74,21 @@ pnpm storybook
 - `src/index.ts` exporta a API pública.
 - `dist/` é gerado por `pnpm build` e é a única saída publicada.
 
-## Componentes atuais
+## Componentes
 
+- `Alert` / `AlertTitle` / `AlertDescription`
+- `Avatar`
+- `Badge`
 - `Button`
-- `Card`
-- `Dialog`
+- `Card` / `CardHeader` / `CardTitle` / `CardDescription` / `CardContent` / `CardFooter` / `CardAction` / `CardMedia` / `CardBadge`
+- `Checkbox`
+- `Dialog` / `DialogContent` / `DialogTitle` / `DialogDescription` / `DialogTrigger` / `DialogClose`
+- `Input`
+- `Label`
+- `Progress`
+- `Select`
+- `Separator`
+- `Spinner`
+- `Switch`
+- `Tabs` / `TabsList` / `TabsTrigger` / `TabsContent`
+- `Textarea`

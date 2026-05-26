@@ -1,0 +1,42 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Primary, Controls, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as SwitchStories from './Switch.stories';
+
+<Meta of={SwitchStories} />
+
+<Title>Switch</Title>
+<Subtitle>Interruptor de alternância acessível construído com Radix UI</Subtitle>
+
+<Description>
+`Switch` é construído sobre `@radix-ui/react-switch` com estilo alinhado ao Aurora DS.
+
+- Totalmente acessível via teclado (barra de espaço para alternar)
+- Suporta estados controlado e não controlado
+- Use junto com `Label` para associar um rótulo clicável
+</Description>
+
+## Playground
+
+<Primary />
+<Controls />
+
+## Exemplos
+
+<Canvas of={SwitchStories.Padrao} />
+<Canvas of={SwitchStories.Ligado} />
+<Canvas of={SwitchStories.Desabilitado} />
+<Canvas of={SwitchStories.ComRotulo} />
+
+<Source
+  language="tsx"
+  code={`import { Switch, Label } from '@cpxlabs/aurora-ds';
+
+export function ConfiguracaoNotificacao() {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+      <Switch id="notif" defaultChecked />
+      <Label htmlFor="notif">Receber notificações por e-mail</Label>
+    </div>
+  );
+}`}
+/>

@@ -1,0 +1,28 @@
+.track {
+  width: 100%;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--ui-surface-2);
+  border: 1px solid var(--ui-border);
+  overflow: hidden;
+}
+
+.fill {
+  display: block;
+  height: 100%;
+  border-radius: 9999px;
+  background: var(--ui-primary);
+  transition: width 300ms ease;
+}
+
+.positive {
+  background: var(--ui-positive);
+}
+
+.negative {
+  background: var(--ui-negative);
+}
+
+.warning {
+  background: var(--ui-warning);
+}
