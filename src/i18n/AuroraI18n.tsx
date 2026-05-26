@@ -56,6 +56,11 @@ export function AuroraI18nProvider({
   return <AuroraI18nContext.Provider value={value}>{children}</AuroraI18nContext.Provider>;
 }
 
+/**
+ * Retorna as mensagens internas resolvidas do Aurora DS.
+ * Use este hook em componentes que precisem ler os textos padrão definidos pelo
+ * `AuroraI18nProvider`; sem um provider explícito, o fallback é `pt_br`.
+ */
 export function useAuroraI18n() {
   return React.useContext(AuroraI18nContext);
 }

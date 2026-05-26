@@ -46,6 +46,18 @@ const meta: Meta<typeof Card> = {
 export default meta;
 type Story = StoryObj<typeof Card>;
 
+const currencyFormatter = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+});
+
+const numberFormatter = new Intl.NumberFormat("pt-BR");
+
+const percentFormatter = new Intl.NumberFormat("pt-BR", {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+});
+
 const imageCards = [
     {
         title: "Destaque principal",
@@ -109,7 +121,7 @@ export const StatisticsCards: Story = {
                     <span>Receita total</span>
                 </CardHeader>
                 <CardContent>
-                    <span className={styles.statValue}>R$ 45.231,89</span>
+                    <span className={styles.statValue}>{currencyFormatter.format(45231.89)}</span>
                     <div className={styles.metaRow}>
                         <CardBadge tone="positive">+20.1%</CardBadge>
                         <span className={styles.statLabel}>em relação ao mês anterior</span>
@@ -122,7 +134,7 @@ export const StatisticsCards: Story = {
                     <span>Usuários ativos</span>
                 </CardHeader>
                 <CardContent>
-                    <span className={styles.statValue}>2.350</span>
+                    <span className={styles.statValue}>{numberFormatter.format(2350)}</span>
                     <div className={styles.metaRow}>
                         <CardBadge tone="positive">+100%</CardBadge>
                         <span className={styles.statLabel}>crescimento acima da meta</span>
@@ -135,7 +147,7 @@ export const StatisticsCards: Story = {
                     <span>Taxa de conversão</span>
                 </CardHeader>
                 <CardContent>
-                    <span className={styles.statValue}>12,5%</span>
+                    <span className={styles.statValue}>{`${percentFormatter.format(12.5)}%`}</span>
                     <div className={styles.metaRow}>
                         <CardBadge tone="negative">-4.3%</CardBadge>
                         <span className={styles.statLabel}>em relação à última semana</span>
