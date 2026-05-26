@@ -1,0 +1,41 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Primary, Controls, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as SpinnerStories from './Spinner.stories';
+
+<Meta of={SpinnerStories} />
+
+<Title>Spinner</Title>
+<Subtitle>Indicador de carregamento animado com suporte a acessibilidade</Subtitle>
+
+<Description>
+`Spinner` é um indicador de progresso indeterminado para estados de carregamento.
+
+- Tamanhos: `sm`, `md` (padrão) e `lg`
+- Usa `role="status"` e `aria-label` para acessibilidade com leitores de tela
+- Animação puramente via CSS, sem dependências adicionais
+</Description>
+
+## Playground
+
+<Primary />
+<Controls />
+
+## Exemplos
+
+<Canvas of={SpinnerStories.Pequeno} />
+<Canvas of={SpinnerStories.Padrao} />
+<Canvas of={SpinnerStories.Grande} />
+<Canvas of={SpinnerStories.TodosTamanhos} />
+
+<Source
+  language="tsx"
+  code={`import { Spinner, Button } from '@cpxlabs/aurora-ds';
+
+export function BotaoCarregando({ loading }: { loading: boolean }) {
+  return (
+    <Button disabled={loading}>
+      {loading ? <Spinner size="sm" label="Salvando…" /> : 'Salvar'}
+    </Button>
+  );
+}`}
+/>

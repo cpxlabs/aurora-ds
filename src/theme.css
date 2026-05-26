@@ -29,6 +29,10 @@
   --ui-negative-surface: rgba(220, 38, 38, 0.12);
   --ui-negative-border: rgba(220, 38, 38, 0.22);
 
+  --ui-warning: #a16207;
+  --ui-warning-surface: rgba(161, 98, 7, 0.1);
+  --ui-warning-border: rgba(161, 98, 7, 0.25);
+
   --ui-radius: 12px;
 }
 
@@ -58,4 +62,8 @@
   --ui-negative: #fda4af;
   --ui-negative-surface: rgba(253, 164, 175, 0.14);
   --ui-negative-border: rgba(253, 164, 175, 0.24);
+
+  --ui-warning: #fde047;
+  --ui-warning-surface: rgba(253, 224, 71, 0.12);
+  --ui-warning-border: rgba(253, 224, 71, 0.22);
 }

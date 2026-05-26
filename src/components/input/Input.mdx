@@ -1,0 +1,43 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Primary, Controls, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as InputStories from './Input.stories';
+
+<Meta of={InputStories} />
+
+<Title>Input</Title>
+<Subtitle>Campo de entrada de texto com suporte a estado de erro e tipos HTML nativos</Subtitle>
+
+<Description>
+`Input` é um campo de entrada construído sobre o elemento nativo `<input>`.
+
+- Suporta todos os tipos HTML (`text`, `email`, `password`, `number`, etc.)
+- Prop `invalid` adiciona borda vermelha e `aria-invalid="true"` para acessibilidade
+- Aceita `disabled` e todas as outras props nativas de input
+</Description>
+
+## Playground
+
+<Primary />
+<Controls />
+
+## Exemplos
+
+<Canvas of={InputStories.Padrao} />
+<Canvas of={InputStories.Erro} />
+<Canvas of={InputStories.Desabilitado} />
+<Canvas of={InputStories.Senha} />
+
+<Source
+  language="tsx"
+  code={`import { Input } from '@cpxlabs/aurora-ds';
+
+export function Formulario() {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 8, maxWidth: 320 }}>
+      <Input type="email" placeholder="Seu e-mail" />
+      <Input type="password" placeholder="Senha" />
+      <Input invalid placeholder="Campo com erro" defaultValue="valor inválido" />
+    </div>
+  );
+}`}
+/>
