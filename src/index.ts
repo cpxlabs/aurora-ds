@@ -1,12 +1,19 @@
 // Carrega tokens de tema e permite que os componentes usem variáveis CSS.
 import "./theme.css";
 
-export * from "./components/button";
-export * from "./components/dialog";
-export * from "./components/card";
-export * from "./components/input";
-export * from "./components/badge";
-export * from "./components/textarea";
 export * from "./components/alert";
-export * from "./components/spinner";
+export * from "./components/avatar";
+export * from "./components/badge";
+export * from "./components/button";
+export * from "./components/card";
+export * from "./components/checkbox";
+export * from "./components/dialog";
+export * from "./components/input";
+export * from "./components/label";
+export * from "./components/progress";
+export * from "./components/select";
 export * from "./components/separator";
+export * from "./components/spinner";
+export * from "./components/switch";
+export * from "./components/tabs";
+export * from "./components/textarea";

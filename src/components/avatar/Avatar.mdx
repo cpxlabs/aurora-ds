@@ -1,0 +1,38 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Primary, Controls, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as AvatarStories from './Avatar.stories';
+
+<Meta of={AvatarStories} />
+
+<Title>Avatar</Title>
+<Subtitle>Representação visual de um usuário com imagem ou iniciais</Subtitle>
+
+<Description>
+`Avatar` exibe a foto de perfil de um usuário. Quando nenhuma imagem é fornecida, mostra as iniciais como fallback.
+
+- Tamanhos: `sm`, `md` (padrão) e `lg`
+- Prop `src` define a URL da imagem; prop `initials` define o fallback de texto
+- Acessível via `role="img"` e `aria-label`
+</Description>
+
+## Playground
+
+<Primary />
+<Controls />
+
+## Exemplos
+
+<Canvas of={AvatarStories.ComIniciais} />
+<Canvas of={AvatarStories.ComImagem} />
+<Canvas of={AvatarStories.TodosTamanhos} />
+
+<Source
+  language="tsx"
+  code={`import { Avatar } from '@cpxlabs/aurora-ds';
+
+// Com iniciais
+<Avatar initials="AB" />
+
+// Com imagem
+<Avatar src="/perfil.jpg" alt="Foto de Ana Beatriz" />`}
+/>

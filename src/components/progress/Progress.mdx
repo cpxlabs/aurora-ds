@@ -1,0 +1,39 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Primary, Controls, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as ProgressStories from './Progress.stories';
+
+<Meta of={ProgressStories} />
+
+<Title>Progress</Title>
+<Subtitle>Barra de progresso determinada com tons semânticos</Subtitle>
+
+<Description>
+`Progress` exibe uma barra de progresso determinada com suporte a acessibilidade.
+
+- Valores entre 0 e 100 (limitados automaticamente)
+- Tons: `neutral` (padrão), `positive`, `negative` e `warning`
+- Usa `role="progressbar"` com `aria-valuenow`, `aria-valuemin` e `aria-valuemax`
+</Description>
+
+## Playground
+
+<Primary />
+<Controls />
+
+## Exemplos
+
+<Canvas of={ProgressStories.Padrao} />
+<Canvas of={ProgressStories.Positivo} />
+<Canvas of={ProgressStories.Negativo} />
+<Canvas of={ProgressStories.TodosOsTons} />
+
+<Source
+  language="tsx"
+  code={`import { Progress } from '@cpxlabs/aurora-ds';
+
+// Upload concluído
+<Progress value={100} tone="positive" label="Upload concluído" />
+
+// Erro no processo
+<Progress value={40} tone="negative" label="Falha no envio" />`}
+/>

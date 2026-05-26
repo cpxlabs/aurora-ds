@@ -1,0 +1,12 @@
+.label {
+  display: inline-block;
+  font-size: var(--ui-text-sm);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ui-fg);
+  cursor: default;
+}
+
+.invalid {
+  color: var(--ui-negative);
+}
