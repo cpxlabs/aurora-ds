@@ -1,0 +1,45 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Primary, Controls, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as BadgeStories from './Badge.stories';
+
+<Meta of={BadgeStories} />
+
+<Title>Badge</Title>
+<Subtitle>Etiqueta semântica para status e categorias</Subtitle>
+
+<Description>
+`Badge` é um componente de etiqueta inline para destacar status, categorias ou contagens.
+
+- Tons semânticos: `neutral`, `positive` e `negative`
+- Tamanhos: `md` (padrão) e `sm`
+- Construído sobre `<span>` e aceita todas as props HTML nativas
+</Description>
+
+## Playground
+
+<Primary />
+<Controls />
+
+## Exemplos
+
+<Canvas of={BadgeStories.Neutro} />
+<Canvas of={BadgeStories.Positivo} />
+<Canvas of={BadgeStories.Negativo} />
+<Canvas of={BadgeStories.Pequeno} />
+<Canvas of={BadgeStories.TodasVariantes} />
+
+<Source
+  language="tsx"
+  code={`import { Badge } from '@cpxlabs/aurora-ds';
+
+export function StatusPedido() {
+  return (
+    <div style={{ display: 'flex', gap: 8 }}>
+      <Badge tone="neutral">Rascunho</Badge>
+      <Badge tone="positive">Publicado</Badge>
+      <Badge tone="negative">Arquivado</Badge>
+      <Badge tone="positive" size="sm">Novo</Badge>
+    </div>
+  );
+}`}
+/>

@@ -1,0 +1,43 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Primary, Controls, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as TextareaStories from './Textarea.stories';
+
+<Meta of={TextareaStories} />
+
+<Title>Textarea</Title>
+<Subtitle>Campo de texto multilinha com suporte a estado de erro</Subtitle>
+
+<Description>
+`Textarea` é um campo de texto multilinha construído sobre o elemento nativo `<textarea>`.
+
+- Segue o mesmo padrão visual e de API do componente `Input`
+- Prop `invalid` adiciona borda vermelha e `aria-invalid="true"` para acessibilidade
+- Redimensionamento vertical habilitado por padrão
+- Aceita `disabled`, `rows` e todas as outras props nativas de textarea
+</Description>
+
+## Playground
+
+<Primary />
+<Controls />
+
+## Exemplos
+
+<Canvas of={TextareaStories.Padrao} />
+<Canvas of={TextareaStories.Erro} />
+<Canvas of={TextareaStories.Desabilitado} />
+<Canvas of={TextareaStories.Alto} />
+
+<Source
+  language="tsx"
+  code={`import { Textarea } from '@cpxlabs/aurora-ds';
+
+export function FormularioContato() {
+  return (
+    <Textarea
+      rows={5}
+      placeholder="Descreva sua solicitação…"
+    />
+  );
+}`}
+/>

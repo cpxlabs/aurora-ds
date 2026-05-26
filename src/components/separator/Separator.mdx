@@ -1,0 +1,43 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Primary, Controls, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as SeparatorStories from './Separator.stories';
+
+<Meta of={SeparatorStories} />
+
+<Title>Separator</Title>
+<Subtitle>Divisor visual horizontal ou vertical entre seções de conteúdo</Subtitle>
+
+<Description>
+`Separator` é um divisor visual construído sobre o elemento `<hr>`.
+
+- Orientações: `horizontal` (padrão) e `vertical`
+- Usa `role="separator"` e `aria-orientation` para acessibilidade
+- Renderiza com 1px de espessura usando o token `--ui-border`
+</Description>
+
+## Playground
+
+<Primary />
+<Controls />
+
+## Exemplos
+
+<Canvas of={SeparatorStories.Horizontal} />
+<Canvas of={SeparatorStories.Vertical} />
+
+<Source
+  language="tsx"
+  code={`import { Separator } from '@cpxlabs/aurora-ds';
+
+export function Menu() {
+  return (
+    <nav style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+      <a href="/inicio">Início</a>
+      <Separator orientation="vertical" />
+      <a href="/sobre">Sobre</a>
+      <Separator orientation="vertical" />
+      <a href="/contato">Contato</a>
+    </nav>
+  );
+}`}
+/>

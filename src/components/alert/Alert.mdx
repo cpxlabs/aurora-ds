@@ -1,0 +1,38 @@
+{/* @ts-expect-error - Storybook MDX */}
+import { Meta, Title, Subtitle, Description, Canvas, Source } from '@storybook/addon-docs/blocks';
+import * as AlertStories from './Alert.stories';
+
+<Meta of={AlertStories} />
+
+<Title>Alert</Title>
+<Subtitle>Mensagem de feedback com tons semânticos neutral, positive, negative e warning</Subtitle>
+
+<Description>
+`Alert` é um componente de notificação inline para exibir mensagens de feedback ao usuário.
+
+- Tons: `neutral`, `positive`, `negative` e `warning`
+- Usa `role="alert"` para acessibilidade
+- Componha com `AlertTitle` e `AlertDescription` para estrutura semântica
+</Description>
+
+## Exemplos
+
+<Canvas of={AlertStories.Neutro} />
+<Canvas of={AlertStories.Positivo} />
+<Canvas of={AlertStories.Negativo} />
+<Canvas of={AlertStories.Aviso} />
+<Canvas of={AlertStories.TodasVariantes} />
+
+<Source
+  language="tsx"
+  code={`import { Alert, AlertTitle, AlertDescription } from '@cpxlabs/aurora-ds';
+
+export function FeedbackOperacao() {
+  return (
+    <Alert tone="positive">
+      <AlertTitle>Salvo com sucesso</AlertTitle>
+      <AlertDescription>Suas alterações foram aplicadas.</AlertDescription>
+    </Alert>
+  );
+}`}
+/>
