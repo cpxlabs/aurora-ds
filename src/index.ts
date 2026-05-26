@@ -17,3 +17,4 @@ export * from "./components/spinner";
 export * from "./components/switch";
 export * from "./components/tabs";
 export * from "./components/textarea";
+export * from "./i18n";

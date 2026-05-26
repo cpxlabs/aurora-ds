@@ -48,9 +48,9 @@ type Story = StoryObj<typeof Card>;
 
 const imageCards = [
     {
-        title: "Headline Label",
+        title: "Destaque principal",
         description: "Escreva uma descrição marcante nesta seção dedicada do card. Cada palavra importa.",
-        cta: "Botão",
+        cta: "Explorar",
     },
     {
         title: "Descubra mais",
@@ -122,7 +122,7 @@ export const StatisticsCards: Story = {
                     <span>Usuários ativos</span>
                 </CardHeader>
                 <CardContent>
-                    <span className={styles.statValue}>2,350</span>
+                    <span className={styles.statValue}>2.350</span>
                     <div className={styles.metaRow}>
                         <CardBadge tone="positive">+100%</CardBadge>
                         <span className={styles.statLabel}>crescimento acima da meta</span>
@@ -135,7 +135,7 @@ export const StatisticsCards: Story = {
                     <span>Taxa de conversão</span>
                 </CardHeader>
                 <CardContent>
-                    <span className={styles.statValue}>12.5%</span>
+                    <span className={styles.statValue}>12,5%</span>
                     <div className={styles.metaRow}>
                         <CardBadge tone="negative">-4.3%</CardBadge>
                         <span className={styles.statLabel}>em relação à última semana</span>

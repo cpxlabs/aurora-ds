@@ -38,46 +38,84 @@ var p = {
 	lg: "_lg_uuig6_23",
 	image: "_image_uuig6_29",
 	initials: "_initials_uuig6_36"
-}, m = e.forwardRef(({ src: e, alt: r, initials: i, size: a = "md", className: o, ...s }, c) => /* @__PURE__ */ n("span", {
-	ref: c,
-	role: "img",
-	"aria-label": r ?? i ?? "Avatar",
-	className: t(p.avatar, a === "sm" && p.sm, a === "lg" && p.lg, o),
-	...s,
-	children: e ? /* @__PURE__ */ n("img", {
-		src: e,
-		alt: r ?? "",
-		className: p.image,
-		"aria-hidden": "true"
-	}) : /* @__PURE__ */ n("span", {
-		"aria-hidden": "true",
-		className: p.initials,
-		children: i ? i.slice(0, 2).toUpperCase() : "?"
-	})
-}));
-m.displayName = "Avatar";
-var h = {
+}, m = {
+	pt_br: {
+		avatarFallbackLabel: "Avatar",
+		dialogCloseLabel: "Fechar diálogo",
+		progressLabel: "Progresso",
+		spinnerLabel: "Carregando…"
+	},
+	es: {
+		avatarFallbackLabel: "Avatar",
+		dialogCloseLabel: "Cerrar diálogo",
+		progressLabel: "Progreso",
+		spinnerLabel: "Cargando…"
+	},
+	eng: {
+		avatarFallbackLabel: "Avatar",
+		dialogCloseLabel: "Close dialog",
+		progressLabel: "Progress",
+		spinnerLabel: "Loading…"
+	}
+}, h = e.createContext(m.pt_br);
+function ee({ children: t, locale: r = "pt_br", messages: i }) {
+	let a = e.useMemo(() => ({
+		...m[r],
+		...i
+	}), [r, i]);
+	return /* @__PURE__ */ n(h.Provider, {
+		value: a,
+		children: t
+	});
+}
+function g() {
+	return e.useContext(h);
+}
+//#endregion
+//#region src/components/avatar/Avatar.tsx
+var _ = e.forwardRef(({ src: e, alt: r, initials: i, size: a = "md", className: o, ...s }, c) => {
+	let { avatarFallbackLabel: l } = g();
+	return /* @__PURE__ */ n("span", {
+		ref: c,
+		role: "img",
+		"aria-label": r ?? i ?? l,
+		className: t(p.avatar, a === "sm" && p.sm, a === "lg" && p.lg, o),
+		...s,
+		children: e ? /* @__PURE__ */ n("img", {
+			src: e,
+			alt: r ?? "",
+			className: p.image,
+			"aria-hidden": "true"
+		}) : /* @__PURE__ */ n("span", {
+			"aria-hidden": "true",
+			className: p.initials,
+			children: i ? i.slice(0, 2).toUpperCase() : "?"
+		})
+	});
+});
+_.displayName = "Avatar";
+var v = {
 	badge: "_badge_808mz_1",
 	positive: "_positive_808mz_16",
 	negative: "_negative_808mz_22",
 	sm: "_sm_808mz_28"
-}, g = e.forwardRef(({ tone: e = "neutral", size: r = "md", className: i, ...a }, o) => /* @__PURE__ */ n("span", {
+}, y = e.forwardRef(({ tone: e = "neutral", size: r = "md", className: i, ...a }, o) => /* @__PURE__ */ n("span", {
 	ref: o,
-	className: t(h.badge, e === "positive" && h.positive, e === "negative" && h.negative, r === "sm" && h.sm, i),
+	className: t(v.badge, e === "positive" && v.positive, e === "negative" && v.negative, r === "sm" && v.sm, i),
 	...a
 }));
-g.displayName = "Badge";
-var _ = {
+y.displayName = "Badge";
+var b = {
 	button: "_button_s4yje_1",
 	ghost: "_ghost_s4yje_34"
-}, ee = e.forwardRef(({ className: e, type: r = "button", variant: i = "solid", ...a }, o) => /* @__PURE__ */ n("button", {
+}, x = e.forwardRef(({ className: e, type: r = "button", variant: i = "solid", ...a }, o) => /* @__PURE__ */ n("button", {
 	ref: o,
 	type: r,
-	className: t(_.button, i === "ghost" && _.ghost, e),
+	className: t(b.button, i === "ghost" && b.ghost, e),
 	...a
 }));
-ee.displayName = "Button";
-var v = {
+x.displayName = "Button";
+var S = {
 	card: "_card_1banj_1",
 	header: "_header_1banj_18",
 	title: "_title_1banj_29",
@@ -97,73 +135,73 @@ var v = {
 	avatar: "_avatar_1banj_128",
 	tagList: "_tagList_1banj_141",
 	divider: "_divider_1banj_147"
-}, y = e.forwardRef(({ asChild: e = !1, className: r, ...a }, o) => /* @__PURE__ */ n(e ? i : "div", {
+}, C = e.forwardRef(({ asChild: e = !1, className: r, ...a }, o) => /* @__PURE__ */ n(e ? i : "div", {
 	ref: o,
-	className: t(v.card, r),
+	className: t(S.card, r),
 	...a
 }));
-y.displayName = "Card";
-var b = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n("div", {
-	ref: i,
-	className: t(v.header, e),
-	...r
-}));
-b.displayName = "CardHeader";
-var x = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n("h3", {
-	ref: i,
-	className: t(v.title, e),
-	...r
-}));
-x.displayName = "CardTitle";
-var S = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n("p", {
-	ref: i,
-	className: t(v.description, e),
-	...r
-}));
-S.displayName = "CardDescription";
-var C = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n("div", {
-	ref: i,
-	"data-slot": "card-action",
-	className: t(v.action, e),
-	...r
-}));
-C.displayName = "CardAction";
+C.displayName = "Card";
 var w = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n("div", {
 	ref: i,
-	className: t(v.content, e),
+	className: t(S.header, e),
 	...r
 }));
-w.displayName = "CardContent";
-var T = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n("div", {
+w.displayName = "CardHeader";
+var T = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n("h3", {
 	ref: i,
-	className: t(v.footer, e),
+	className: t(S.title, e),
 	...r
 }));
-T.displayName = "CardFooter";
-var E = e.forwardRef(({ className: e, imageClassName: r, ...i }, a) => /* @__PURE__ */ n("div", {
+T.displayName = "CardTitle";
+var E = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n("p", {
+	ref: i,
+	className: t(S.description, e),
+	...r
+}));
+E.displayName = "CardDescription";
+var D = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n("div", {
+	ref: i,
+	"data-slot": "card-action",
+	className: t(S.action, e),
+	...r
+}));
+D.displayName = "CardAction";
+var O = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n("div", {
+	ref: i,
+	className: t(S.content, e),
+	...r
+}));
+O.displayName = "CardContent";
+var k = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n("div", {
+	ref: i,
+	className: t(S.footer, e),
+	...r
+}));
+k.displayName = "CardFooter";
+var A = e.forwardRef(({ className: e, imageClassName: r, ...i }, a) => /* @__PURE__ */ n("div", {
 	ref: a,
-	className: t(v.media, e),
+	className: t(S.media, e),
 	children: /* @__PURE__ */ n("img", {
-		className: t(v.mediaImage, r),
+		className: t(S.mediaImage, r),
 		...i
 	})
 }));
-E.displayName = "CardMedia";
-var D = e.forwardRef(({ tone: e = "neutral", className: r, ...i }, a) => /* @__PURE__ */ n("span", {
+A.displayName = "CardMedia";
+var j = e.forwardRef(({ tone: e = "neutral", className: r, ...i }, a) => /* @__PURE__ */ n("span", {
 	ref: a,
-	className: t(v.badge, e === "positive" && v.badgePositive, e === "negative" && v.badgeNegative, r),
+	className: t(S.badge, e === "positive" && S.badgePositive, e === "negative" && S.badgeNegative, r),
 	...i
 }));
-D.displayName = "CardBadge";
-var O = {
+j.displayName = "CardBadge";
+var M = {
 	checkbox: "_checkbox_1qazx_1",
 	indicator: "_indicator_1qazx_36"
-}, k = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(a.Root, {
+}, N = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(a.Root, {
 	ref: i,
-	className: t(O.checkbox, e),
+	className: t(M.checkbox, e),
 	...r,
 	children: /* @__PURE__ */ n(a.Indicator, {
-		className: O.indicator,
+		className: M.indicator,
 		children: /* @__PURE__ */ n("svg", {
 			"aria-hidden": "true",
 			width: "10",
@@ -181,8 +219,8 @@ var O = {
 		})
 	})
 }));
-k.displayName = "Checkbox";
-var A = {
+N.displayName = "Checkbox";
+var P = {
 	overlay: "_overlay_pgdu9_1",
 	content: "_content_pgdu9_7",
 	title: "_title_pgdu9_22",
@@ -194,163 +232,169 @@ var A = {
 function te(e) {
 	return /* @__PURE__ */ n(o.Root, { ...e });
 }
-var ne = o.Trigger, re = o.Close, j = e.forwardRef(({ className: e, children: i, ...a }, s) => /* @__PURE__ */ r(o.Portal, { children: [/* @__PURE__ */ n(o.Overlay, { className: A.overlay }), /* @__PURE__ */ r(o.Content, {
-	ref: s,
-	className: t(A.content, e),
-	...a,
-	children: [i, /* @__PURE__ */ n(o.Close, {
-		className: A.close,
-		"aria-label": "Fechar diálogo",
-		children: /* @__PURE__ */ n("span", {
-			"aria-hidden": "true",
-			children: "×"
-		})
-	})]
-})] }));
-j.displayName = "DialogContent";
-var M = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(o.Title, {
+var ne = o.Trigger, re = o.Close, F = e.forwardRef(({ className: e, children: i, ...a }, s) => {
+	let { dialogCloseLabel: c } = g();
+	return /* @__PURE__ */ r(o.Portal, { children: [/* @__PURE__ */ n(o.Overlay, { className: P.overlay }), /* @__PURE__ */ r(o.Content, {
+		ref: s,
+		className: t(P.content, e),
+		...a,
+		children: [i, /* @__PURE__ */ n(o.Close, {
+			className: P.close,
+			"aria-label": c,
+			children: /* @__PURE__ */ n("span", {
+				"aria-hidden": "true",
+				children: "×"
+			})
+		})]
+	})] });
+});
+F.displayName = "DialogContent";
+var ie = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(o.Title, {
 	ref: i,
 	...r,
-	className: t(A.title, e)
+	className: t(P.title, e)
 }));
-M.displayName = "DialogTitle";
-var N = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(o.Description, {
+ie.displayName = "DialogTitle";
+var I = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(o.Description, {
 	ref: i,
 	...r,
-	className: t(A.description, e)
+	className: t(P.description, e)
 }));
-N.displayName = "DialogDescription";
-var P = {
+I.displayName = "DialogDescription";
+var L = {
 	input: "_input_1lca7_1",
 	invalid: "_invalid_1lca7_32"
-}, F = e.forwardRef(({ className: e, invalid: r = !1, ...i }, a) => /* @__PURE__ */ n("input", {
+}, R = e.forwardRef(({ className: e, invalid: r = !1, ...i }, a) => /* @__PURE__ */ n("input", {
 	ref: a,
 	"aria-invalid": r || void 0,
-	className: t(P.input, r && P.invalid, e),
+	className: t(L.input, r && L.invalid, e),
 	...i
 }));
-F.displayName = "Input";
-var I = {
+R.displayName = "Input";
+var z = {
 	label: "_label_831v2_1",
 	invalid: "_invalid_831v2_10"
-}, L = e.forwardRef(({ className: e, invalid: r = !1, ...i }, a) => /* @__PURE__ */ n("label", {
+}, B = e.forwardRef(({ className: e, invalid: r = !1, ...i }, a) => /* @__PURE__ */ n("label", {
 	ref: a,
-	className: t(I.label, r && I.invalid, e),
+	className: t(z.label, r && z.invalid, e),
 	...i
 }));
-L.displayName = "Label";
-var R = {
+B.displayName = "Label";
+var V = {
 	track: "_track_1ssnb_1",
 	fill: "_fill_1ssnb_10",
 	positive: "_positive_1ssnb_18",
 	negative: "_negative_1ssnb_22",
 	warning: "_warning_1ssnb_26"
-}, z = e.forwardRef(({ value: e = 0, tone: r = "neutral", label: i = "Progresso", className: a, ...o }, s) => {
-	let c = Math.min(100, Math.max(0, e));
+}, H = e.forwardRef(({ value: e = 0, tone: r = "neutral", label: i, className: a, ...o }, s) => {
+	let { progressLabel: c } = g(), l = Math.min(100, Math.max(0, e));
 	return /* @__PURE__ */ n("div", {
 		ref: s,
 		role: "progressbar",
-		"aria-valuenow": c,
+		"aria-valuenow": l,
 		"aria-valuemin": 0,
 		"aria-valuemax": 100,
-		"aria-label": i,
-		className: t(R.track, a),
+		"aria-label": i ?? c,
+		className: t(V.track, a),
 		...o,
 		children: /* @__PURE__ */ n("span", {
-			className: t(R.fill, r === "positive" && R.positive, r === "negative" && R.negative, r === "warning" && R.warning),
-			style: { width: `${c}%` }
+			className: t(V.fill, r === "positive" && V.positive, r === "negative" && V.negative, r === "warning" && V.warning),
+			style: { width: `${l}%` }
 		})
 	});
 });
-z.displayName = "Progress";
-var B = {
+H.displayName = "Progress";
+var U = {
 	select: "_select_18m37_1",
 	invalid: "_invalid_18m37_36"
-}, V = e.forwardRef(({ className: e, invalid: r = !1, ...i }, a) => /* @__PURE__ */ n("select", {
+}, W = e.forwardRef(({ className: e, invalid: r = !1, ...i }, a) => /* @__PURE__ */ n("select", {
 	ref: a,
 	"aria-invalid": r || void 0,
-	className: t(B.select, r && B.invalid, e),
+	className: t(U.select, r && U.invalid, e),
 	...i
 }));
-V.displayName = "Select";
-var H = {
+W.displayName = "Select";
+var G = {
 	separator: "_separator_fd6sf_1",
 	vertical: "_vertical_fd6sf_12"
-}, U = e.forwardRef(({ orientation: e = "horizontal", className: r, ...i }, a) => /* @__PURE__ */ n("hr", {
+}, K = e.forwardRef(({ orientation: e = "horizontal", className: r, ...i }, a) => /* @__PURE__ */ n("hr", {
 	ref: a,
 	role: "separator",
 	"aria-orientation": e,
-	className: t(H.separator, e === "vertical" && H.vertical, r),
+	className: t(G.separator, e === "vertical" && G.vertical, r),
 	...i
 }));
-U.displayName = "Separator";
-var W = {
+K.displayName = "Separator";
+var q = {
 	spinner: "_spinner_1rwif_7",
 	sm: "_sm_1rwif_15",
 	lg: "_lg_1rwif_20",
 	track: "_track_1rwif_25",
 	"aurora-spin": "_aurora-spin_1rwif_1"
-}, G = e.forwardRef(({ size: e = "md", label: r = "Carregando…", className: i, ...a }, o) => /* @__PURE__ */ n("span", {
-	ref: o,
-	role: "status",
-	"aria-label": r,
-	className: t(W.spinner, e === "sm" && W.sm, e === "lg" && W.lg, i),
-	...a,
-	children: /* @__PURE__ */ n("span", {
-		className: W.track,
-		"aria-hidden": "true"
-	})
-}));
-G.displayName = "Spinner";
-var K = {
+}, J = e.forwardRef(({ size: e = "md", label: r, className: i, ...a }, o) => {
+	let { spinnerLabel: s } = g();
+	return /* @__PURE__ */ n("span", {
+		ref: o,
+		role: "status",
+		"aria-label": r ?? s,
+		className: t(q.spinner, e === "sm" && q.sm, e === "lg" && q.lg, i),
+		...a,
+		children: /* @__PURE__ */ n("span", {
+			className: q.track,
+			"aria-hidden": "true"
+		})
+	});
+});
+J.displayName = "Spinner";
+var Y = {
 	switch: "_switch_169xx_1",
 	thumb: "_thumb_169xx_35"
-}, q = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(s.Root, {
+}, X = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(s.Root, {
 	ref: i,
-	className: t(K.switch, e),
+	className: t(Y.switch, e),
 	...r,
-	children: /* @__PURE__ */ n(s.Thumb, { className: K.thumb })
+	children: /* @__PURE__ */ n(s.Thumb, { className: Y.thumb })
 }));
-q.displayName = "Switch";
-var J = {
+X.displayName = "Switch";
+var Z = {
 	list: "_list_4526f_1",
 	trigger: "_trigger_4526f_10",
 	content: "_content_4526f_50"
 };
 //#endregion
 //#region src/components/tabs/Tabs.tsx
-function ie(e) {
+function ae(e) {
 	return /* @__PURE__ */ n(c.Root, { ...e });
 }
-var Y = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(c.List, {
+var Q = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(c.List, {
 	ref: i,
-	className: t(J.list, e),
+	className: t(Z.list, e),
 	...r
 }));
-Y.displayName = "TabsList";
-var X = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(c.Trigger, {
+Q.displayName = "TabsList";
+var $ = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(c.Trigger, {
 	ref: i,
-	className: t(J.trigger, e),
+	className: t(Z.trigger, e),
 	...r
 }));
-X.displayName = "TabsTrigger";
-var Z = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(c.Content, {
+$.displayName = "TabsTrigger";
+var oe = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(c.Content, {
 	ref: i,
-	className: t(J.content, e),
+	className: t(Z.content, e),
 	...r
 }));
-Z.displayName = "TabsContent";
-var Q = {
+oe.displayName = "TabsContent";
+var se = {
 	textarea: "_textarea_p2xx0_1",
 	invalid: "_invalid_p2xx0_36"
-}, $ = e.forwardRef(({ className: e, invalid: r = !1, ...i }, a) => /* @__PURE__ */ n("textarea", {
+}, ce = e.forwardRef(({ className: e, invalid: r = !1, ...i }, a) => /* @__PURE__ */ n("textarea", {
 	ref: a,
 	"aria-invalid": r || void 0,
-	className: t(Q.textarea, r && Q.invalid, e),
+	className: t(se.textarea, r && se.invalid, e),
 	...i
 }));
-$.displayName = "Textarea";
+ce.displayName = "Textarea";
 //#endregion
-export { u as Alert, f as AlertDescription, d as AlertTitle, m as Avatar, g as Badge, ee as Button, y as Card, C as CardAction, D as CardBadge, w as CardContent, S as CardDescription, T as CardFooter, b as CardHeader, E as CardMedia, x as CardTitle, k as Checkbox, te as Dialog, re as DialogClose, j as DialogContent, N as DialogDescription, M as DialogTitle, ne as DialogTrigger, F as Input, L as Label, z as Progress, V as Select, U as Separator, G as Spinner, q as Switch, ie as Tabs, Z as TabsContent, Y as TabsList, X as TabsTrigger, $ as Textarea };
+export { u as Alert, f as AlertDescription, d as AlertTitle, ee as AuroraI18nProvider, _ as Avatar, y as Badge, x as Button, C as Card, D as CardAction, j as CardBadge, O as CardContent, E as CardDescription, k as CardFooter, w as CardHeader, A as CardMedia, T as CardTitle, N as Checkbox, te as Dialog, re as DialogClose, F as DialogContent, I as DialogDescription, ie as DialogTitle, ne as DialogTrigger, R as Input, B as Label, H as Progress, W as Select, K as Separator, J as Spinner, X as Switch, ae as Tabs, oe as TabsContent, Q as TabsList, $ as TabsTrigger, ce as Textarea, m as auroraI18nMessages, g as useAuroraI18n };
 
 //# sourceMappingURL=index.mjs.map
