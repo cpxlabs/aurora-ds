@@ -107,12 +107,12 @@ Para ativar o modo escuro, defina `data-theme="dark"` no `html` ou em um wrapper
 ## Desenvolvimento
 
 ```bash
-corepack pnpm install --ignore-scripts
-corepack pnpm lint
-corepack pnpm typecheck
-corepack pnpm test
-corepack pnpm build
-corepack pnpm storybook
+pnpm install --ignore-scripts
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm build
+pnpm storybook
 ```
 
 ## Estrutura do pacote
@@ -127,7 +127,7 @@ corepack pnpm storybook
 
 - Versão atual do pacote: `1.0.0`
 - Artefatos publicados: `dist/index.mjs`, `dist/index.cjs`, `dist/index.d.ts` e `dist/theme.css`
-- Antes de publicar, execute `corepack pnpm lint`, `corepack pnpm typecheck`, `corepack pnpm test` e `corepack pnpm build`
+- Antes de publicar, execute `pnpm lint`, `pnpm typecheck`, `pnpm test` e `pnpm build`
 
 ## Componentes
 
