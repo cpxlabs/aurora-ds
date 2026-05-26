@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '../components/button/Button';
 
 const meta: Meta = {
-    title: 'Docs/Theming',
+    title: 'Docs/Temas',
 };
 
 export default meta;
@@ -25,7 +25,7 @@ export const TokensApplied: Story = {
             <div style={{ fontWeight: 700 }}>Superfície usando tokens</div>
             <div style={{ opacity: 0.85 }}>Troque o tema na toolbar do Storybook.</div>
             <div style={{ display: 'flex', gap: 10 }}>
-                <Button>Solid</Button>
+                <Button>Primário</Button>
                 <Button variant="ghost">Secundário</Button>
             </div>
         </div>

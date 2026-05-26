@@ -4,11 +4,11 @@ import * as ThemingStories from './Theming.stories';
 
 <Meta of={ThemingStories} />
 
-<Title>Theming</Title>
+<Title>Temas</Title>
 <Subtitle>Temas claro e escuro com variáveis CSS do Aurora DS</Subtitle>
 
 <Description>
-Os componentes consomem os tokens definidos em `src/theme.css`. A troca de tema é feita por atributo:
+Os componentes consomem os tokens definidos em `src/theme.css`. Ao importar o pacote raiz, esses estilos já são carregados. A troca de tema é feita por atributo:
 
 - **Claro**: valores padrão em `:root`
 - **Escuro**: sobrescritas em `[data-theme="dark"]`
@@ -20,9 +20,7 @@ Isso mantém o tema independente de framework para as aplicações consumidoras.
 
 <Source
   language="tsx"
-  code={`import "@cpxlabs/aurora-ds/theme.css";
-
-export function setTheme(theme: 'light' | 'dark') {
+  code={`export function setTheme(theme: 'light' | 'dark') {
   const root = document.documentElement;
   if (theme === 'dark') root.setAttribute('data-theme', 'dark');
   else root.removeAttribute('data-theme');

@@ -18,12 +18,13 @@ pnpm add @cpxlabs/aurora-ds
 
 ### Importação
 
-> Importe os componentes pelo pacote raiz e o tema uma vez a partir de `theme.css`.
+> Importe os componentes pelo pacote raiz. O entrypoint público já carrega os tokens de tema automaticamente.
 
 ```ts
-import "@cpxlabs/aurora-ds/theme.css";
 import { Button, Dialog } from '@cpxlabs/aurora-ds';
 ```
+
+Se você quiser expor apenas os estilos de tema, a entrada `@cpxlabs/aurora-ds/theme.css` continua disponível.
 
 ### Modo escuro
 
@@ -38,12 +39,11 @@ No Storybook, você pode trocar o tema pelo controle **Tema** na toolbar.
 
 ## Exemplo rápido
 
-<Canvas of={GettingStartedStories.QuickExample} />
+<Canvas of={GettingStartedStories.ExemploRapido} />
 
 <Source
   language="tsx"
-  code={`import "@cpxlabs/aurora-ds/theme.css";
-import { Button } from '@cpxlabs/aurora-ds';
+  code={`import { Button } from '@cpxlabs/aurora-ds';
 
 export function Exemplo() {
   return (

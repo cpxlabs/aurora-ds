@@ -10,7 +10,7 @@ import * as ComponentsUsageStories from './ComponentsUsage.stories';
 <Description>
 Use os componentes do Aurora DS pelo pacote raiz e monte a interface por composição.
 
-- importe `@cpxlabs/aurora-ds/theme.css` uma vez na aplicação;
+- o pacote raiz já carrega os tokens de tema automaticamente;
 - reutilize componentes compostos como `Card`, `Alert`, `Tabs` e `Dialog`;
 - prefira manter `Label`, `Input`, `Select`, `Checkbox` e `Switch` conectados por `id` e `htmlFor`.
 </Description>
@@ -19,8 +19,7 @@ Use os componentes do Aurora DS pelo pacote raiz e monte a interface por composi
 
 <Source
   language="tsx"
-  code={`import "@cpxlabs/aurora-ds/theme.css";
-import {
+  code={`import {
   Button,
   Card,
   CardContent,

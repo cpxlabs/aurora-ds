@@ -12,7 +12,15 @@ Aurora DS é uma biblioteca de componentes React construída com TypeScript, Vit
 pnpm add @cpxlabs/aurora-ds
 ```
 
-Importe o arquivo de tema exportado uma vez no ponto de entrada da aplicação:
+## Consumo do pacote
+
+Ao importar os componentes pelo pacote raiz, os tokens de tema já são carregados automaticamente:
+
+```ts
+import { Button, Dialog } from "@cpxlabs/aurora-ds";
+```
+
+Se você precisar expor somente os estilos de tema de forma explícita, também pode usar a entrada dedicada:
 
 ```ts
 import "@cpxlabs/aurora-ds/theme.css";
