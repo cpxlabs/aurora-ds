@@ -156,6 +156,38 @@ body {
   gap: 0.75rem;
 }
 
+/* ── Seção de controles avançados ─────────────────────────────────────────── */
+.layout-avancado {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.stack-campos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.linha-controle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.equipe {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.label-progresso {
+  margin-bottom: 0.375rem;
+  font-size: 0.875rem;
+  color: var(--ui-muted-fg);
+}
+
 /* ── Botão com spinner ────────────────────────────────────────────────────── */
 .btn-carregando {
   display: inline-flex;
@@ -188,6 +220,10 @@ body {
   }
 
   .layout-form {
+    grid-template-columns: 1fr;
+  }
+
+  .layout-avancado {
     grid-template-columns: 1fr;
   }
 }

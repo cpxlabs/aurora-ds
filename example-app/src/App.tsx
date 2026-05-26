@@ -3,6 +3,7 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
+  Avatar,
   Badge,
   Button,
   Card,
@@ -14,6 +15,7 @@ import {
   CardHeader,
   CardMedia,
   CardTitle,
+  Checkbox,
   Dialog,
   DialogClose,
   DialogContent,
@@ -21,8 +23,16 @@ import {
   DialogTitle,
   DialogTrigger,
   Input,
+  Label,
+  Progress,
+  Select,
   Separator,
   Spinner,
+  Switch,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
   Textarea,
 } from "@cpxlabs/aurora-ds";
 
@@ -272,6 +282,105 @@ export function App() {
                 </AlertDescription>
               </Alert>
             </div>
+          </div>
+        </section>
+
+        <Separator />
+
+        {/* ── Controles avançados ── */}
+        <section>
+          <h2 className="titulo-secao">Controles Avançados</h2>
+          <div className="layout-avancado">
+            <Card>
+              <CardHeader>
+                <CardTitle>Preferências da Conta</CardTitle>
+                <CardDescription>
+                  Exemplo com Select, Switch, Checkbox e Label.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Tabs defaultValue="perfil">
+                  <TabsList>
+                    <TabsTrigger value="perfil">Perfil</TabsTrigger>
+                    <TabsTrigger value="seguranca">Segurança</TabsTrigger>
+                    <TabsTrigger value="notificacoes">Notificações</TabsTrigger>
+                  </TabsList>
+
+                  <TabsContent value="perfil">
+                    <div className="stack-campos">
+                      <div className="campo">
+                        <Label htmlFor="plano">Plano atual</Label>
+                        <Select id="plano" defaultValue="pro">
+                          <option value="free">Free</option>
+                          <option value="pro">Pro</option>
+                          <option value="enterprise">Enterprise</option>
+                        </Select>
+                      </div>
+                      <div className="linha-controle">
+                        <Switch id="publico" defaultChecked />
+                        <Label htmlFor="publico">Perfil público</Label>
+                      </div>
+                    </div>
+                  </TabsContent>
+
+                  <TabsContent value="seguranca">
+                    <div className="stack-campos">
+                      <div className="linha-controle">
+                        <Checkbox id="2fa" defaultChecked />
+                        <Label htmlFor="2fa">Autenticação em dois fatores</Label>
+                      </div>
+                      <div className="linha-controle">
+                        <Checkbox id="sessao" />
+                        <Label htmlFor="sessao">Encerrar sessões antigas</Label>
+                      </div>
+                    </div>
+                  </TabsContent>
+
+                  <TabsContent value="notificacoes">
+                    <div className="stack-campos">
+                      <div className="linha-controle">
+                        <Switch id="notif-email" defaultChecked />
+                        <Label htmlFor="notif-email">Receber resumo semanal por e-mail</Label>
+                      </div>
+                      <div className="linha-controle">
+                        <Switch id="push" />
+                        <Label htmlFor="push">Ativar notificações push</Label>
+                      </div>
+                    </div>
+                  </TabsContent>
+                </Tabs>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Status da Equipe</CardTitle>
+                <CardDescription>
+                  Exemplo com Avatar e Progress para monitoramento rápido.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="stack-campos">
+                  <div className="equipe">
+                    <Avatar initials="AM" />
+                    <Avatar initials="BR" />
+                    <Avatar initials="CP" />
+                    <Avatar src="https://i.pravatar.cc/100?img=20" alt="Foto da Marina" />
+                  </div>
+
+                  <div className="stack-campos">
+                    <div>
+                      <p className="label-progresso">Checklist de lançamento</p>
+                      <Progress value={78} tone="positive" label="Lançamento 78%" />
+                    </div>
+                    <div>
+                      <p className="label-progresso">Correções críticas</p>
+                      <Progress value={32} tone="warning" label="Correções críticas 32%" />
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
       </main>
