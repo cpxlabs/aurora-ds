@@ -7,7 +7,7 @@ const meta: Meta<typeof Badge> = {
   argTypes: {
     tone: {
       control: "select",
-      options: ["neutral", "positive", "negative"],
+      options: ["neutral", "positive", "negative", "warning"],
       description: "Cor semântica do badge",
     },
     size: {
@@ -48,6 +48,11 @@ export const Negativo: Story = {
   args: { children: "Arquivado", tone: "negative" },
 };
 
+export const Aviso: Story = {
+  name: "Aviso",
+  args: { children: "Pendente", tone: "warning" },
+};
+
 export const Pequeno: Story = {
   name: "Tamanho pequeno",
   args: { children: "Novo", tone: "positive", size: "sm" },
@@ -60,9 +65,11 @@ export const TodasVariantes: Story = {
       <Badge tone="neutral">Neutro</Badge>
       <Badge tone="positive">Positivo</Badge>
       <Badge tone="negative">Negativo</Badge>
+      <Badge tone="warning">Aviso</Badge>
       <Badge tone="neutral" size="sm">Pequeno</Badge>
       <Badge tone="positive" size="sm">Publicado</Badge>
       <Badge tone="negative" size="sm">Erro</Badge>
+      <Badge tone="warning" size="sm">Pendente</Badge>
     </div>
   ),
 };

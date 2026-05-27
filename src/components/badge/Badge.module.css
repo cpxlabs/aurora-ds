@@ -25,6 +25,12 @@
   color: var(--ui-negative);
 }
 
+.warning {
+  border-color: var(--ui-warning-border);
+  background: var(--ui-warning-surface);
+  color: var(--ui-warning);
+}
+
 .sm {
   padding: 0.25rem 0.5rem;
   font-size: 0.75rem;

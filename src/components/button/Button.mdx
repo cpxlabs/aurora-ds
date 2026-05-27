@@ -11,6 +11,7 @@ import * as ButtonStories from './Button.stories';
 `Button` é um componente de ação leve construído sobre o elemento nativo `<button>`.
 
 - Variantes: `solid` e `ghost`
+- Composição polimórfica: use `asChild` para renderizar como outro elemento (ex.: `<a>`)
 - Acessibilidade: os estilos de `:focus-visible` usam o token compartilhado `--ui-focus`
 </Description>
 
@@ -24,6 +25,7 @@ import * as ButtonStories from './Button.stories';
 <Canvas of={ButtonStories.Solid} />
 <Canvas of={ButtonStories.Ghost} />
 <Canvas of={ButtonStories.Disabled} />
+<Canvas of={ButtonStories.AsLink} />
 
 <Source
   language="tsx"
@@ -34,6 +36,10 @@ export function Acoes() {
     <div style={{ display: 'flex', gap: 8 }}>
       <Button variant="ghost">Cancelar</Button>
       <Button>Salvar</Button>
+      {/* Composição polimórfica: renderiza como <a> mantendo os estilos do botão */}
+      <Button asChild>
+        <a href="/dashboard">Ir para o painel</a>
+      </Button>
     </div>
   );
 }`}

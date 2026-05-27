@@ -2,7 +2,7 @@ import * as React from "react";
 import clsx from "clsx";
 import styles from "./Badge.module.css";
 
-export type BadgeTone = "neutral" | "positive" | "negative";
+export type BadgeTone = "neutral" | "positive" | "negative" | "warning";
 export type BadgeSize = "sm" | "md";
 
 export type BadgeProps = React.HTMLAttributes<HTMLSpanElement> & {
@@ -20,6 +20,7 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
         styles.badge,
         tone === "positive" && styles.positive,
         tone === "negative" && styles.negative,
+        tone === "warning" && styles.warning,
         size === "sm" && styles.sm,
         className
       )}

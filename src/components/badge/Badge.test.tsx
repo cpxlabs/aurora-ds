@@ -31,6 +31,12 @@ describe("Badge", () => {
     expect(screen.getByText("Erro")).toBeInTheDocument();
   });
 
+  it("aceita tom de aviso", () => {
+    render(<Badge tone="warning">Pendente</Badge>);
+
+    expect(screen.getByText("Pendente")).toBeInTheDocument();
+  });
+
   it("repassa className extra ao elemento span", () => {
     render(<Badge className="minha-classe">Label</Badge>);
 
