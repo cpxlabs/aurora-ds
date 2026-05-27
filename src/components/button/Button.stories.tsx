@@ -14,6 +14,10 @@ const meta: Meta<typeof Button> = {
             control: 'boolean',
             description: 'Estado desabilitado',
         },
+        asChild: {
+            control: 'boolean',
+            description: 'Renderiza o botão como elemento filho (polimórfico)',
+        },
         children: {
             control: 'text',
             description: 'Conteúdo do botão',
@@ -48,4 +52,13 @@ export const Disabled: Story = {
         children: 'Desabilitado',
         disabled: true,
     },
+};
+
+export const AsLink: Story = {
+    name: 'Como link (asChild)',
+    render: () => (
+        <Button asChild>
+            <a href="/inicio">Ir para o início</a>
+        </Button>
+    ),
 };

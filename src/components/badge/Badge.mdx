@@ -10,7 +10,7 @@ import * as BadgeStories from './Badge.stories';
 <Description>
 `Badge` é um componente de etiqueta inline para destacar status, categorias ou contagens.
 
-- Tons semânticos: `neutral`, `positive` e `negative`
+- Tons semânticos: `neutral`, `positive`, `negative` e `warning`
 - Tamanhos: `md` (padrão) e `sm`
 - Construído sobre `<span>` e aceita todas as props HTML nativas
 </Description>
@@ -25,6 +25,7 @@ import * as BadgeStories from './Badge.stories';
 <Canvas of={BadgeStories.Neutro} />
 <Canvas of={BadgeStories.Positivo} />
 <Canvas of={BadgeStories.Negativo} />
+<Canvas of={BadgeStories.Aviso} />
 <Canvas of={BadgeStories.Pequeno} />
 <Canvas of={BadgeStories.TodasVariantes} />
 
@@ -38,6 +39,7 @@ export function StatusPedido() {
       <Badge tone="neutral">Rascunho</Badge>
       <Badge tone="positive">Publicado</Badge>
       <Badge tone="negative">Arquivado</Badge>
+      <Badge tone="warning">Pendente</Badge>
       <Badge tone="positive" size="sm">Novo</Badge>
     </div>
   );

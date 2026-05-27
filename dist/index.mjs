@@ -95,24 +95,25 @@ var _ = e.forwardRef(({ src: e, alt: r, initials: i, size: a = "md", className: 
 });
 _.displayName = "Avatar";
 var v = {
-	badge: "_badge_808mz_1",
-	positive: "_positive_808mz_16",
-	negative: "_negative_808mz_22",
-	sm: "_sm_808mz_28"
+	badge: "_badge_uigd0_1",
+	positive: "_positive_uigd0_16",
+	negative: "_negative_uigd0_22",
+	warning: "_warning_uigd0_28",
+	sm: "_sm_uigd0_34"
 }, y = e.forwardRef(({ tone: e = "neutral", size: r = "md", className: i, ...a }, o) => /* @__PURE__ */ n("span", {
 	ref: o,
-	className: t(v.badge, e === "positive" && v.positive, e === "negative" && v.negative, r === "sm" && v.sm, i),
+	className: t(v.badge, e === "positive" && v.positive, e === "negative" && v.negative, e === "warning" && v.warning, r === "sm" && v.sm, i),
 	...a
 }));
 y.displayName = "Badge";
 var b = {
 	button: "_button_s4yje_1",
 	ghost: "_ghost_s4yje_34"
-}, x = e.forwardRef(({ className: e, type: r = "button", variant: i = "solid", ...a }, o) => /* @__PURE__ */ n("button", {
-	ref: o,
-	type: r,
-	className: t(b.button, i === "ghost" && b.ghost, e),
-	...a
+}, x = e.forwardRef(({ className: e, type: r = "button", variant: a = "solid", asChild: o = !1, ...s }, c) => /* @__PURE__ */ n(o ? i : "button", {
+	ref: c,
+	...!o && { type: r },
+	className: t(b.button, a === "ghost" && b.ghost, e),
+	...s
 }));
 x.displayName = "Button";
 var S = {
