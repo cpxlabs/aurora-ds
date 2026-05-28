@@ -1,10 +1,11 @@
 .label {
   display: inline-block;
-  font-size: var(--ui-text-sm);
-  font-weight: 500;
-  line-height: 1.5;
-  color: var(--ui-fg);
+  font-size: var(--ui-text-xs);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--ui-muted-fg);
   cursor: default;
+  letter-spacing: 0.01em;
 }
 
 .invalid {

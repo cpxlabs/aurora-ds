@@ -2,16 +2,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 9999px;
-  border: 1px solid var(--ui-border);
+  border: 2px solid rgba(255, 255, 255, 0.82);
   background: var(--ui-surface-2);
   color: var(--ui-fg);
   font-weight: 700;
   overflow: hidden;
   flex-shrink: 0;
   user-select: none;
+  box-shadow: var(--ui-shadow-sm);
 }
 
 .sm {
@@ -21,8 +22,8 @@
 }
 
 .lg {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3.75rem;
+  height: 3.75rem;
   font-size: 1.1rem;
 }
 

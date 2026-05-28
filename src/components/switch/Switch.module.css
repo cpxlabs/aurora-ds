@@ -2,13 +2,13 @@
   appearance: none;
   display: inline-flex;
   align-items: center;
-  width: 40px;
-  height: 22px;
+  width: 2.625rem;
+  height: 1.5rem;
   border-radius: 9999px;
   border: 1px solid var(--ui-border);
-  background: var(--ui-surface-2);
+  background: var(--ui-surface-3);
   cursor: pointer;
-  padding: 2px;
+  padding: 0.125rem;
   transition: background-color 120ms ease, border-color 120ms ease;
   flex-shrink: 0;
 }
@@ -18,7 +18,7 @@
 }
 
 .switch[data-state="checked"] {
-  background: var(--ui-primary);
+  background: color-mix(in srgb, var(--ui-primary) 88%, white);
   border-color: var(--ui-primary);
 }
 
@@ -34,15 +34,16 @@
 
 .thumb {
   display: block;
-  width: 16px;
-  height: 16px;
+  width: 1.125rem;
+  height: 1.125rem;
   border-radius: 9999px;
-  background: var(--ui-border);
+  background: #fffdfb;
+  box-shadow: 0 1px 3px rgba(47, 38, 35, 0.24);
   transition: transform 120ms ease, background-color 120ms ease;
   will-change: transform;
 }
 
 .switch[data-state="checked"] .thumb {
-  transform: translateX(18px);
+  transform: translateX(1.125rem);
   background: var(--ui-primary-fg);
 }

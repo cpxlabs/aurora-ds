@@ -3,8 +3,6 @@
   background: var(--ui-border);
   margin: 0;
   flex-shrink: 0;
-
-  /* Horizontal (padrão) */
   height: 1px;
   width: 100%;
 }

@@ -2,28 +2,27 @@
   appearance: none;
   display: block;
   width: 100%;
-  padding: 10px 36px 10px 12px;
+  min-height: var(--ui-control-height);
+  padding: 0.75rem 2.5rem 0.75rem 0.875rem;
   border: 1px solid var(--ui-border);
-  border-radius: var(--ui-radius);
+  border-radius: var(--ui-radius-sm);
   background-color: var(--ui-surface);
-
-  /* Ícone de seta: usa variável para trocar no tema escuro sem duplicar regras */
-  --select-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230f172a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  --select-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2370655f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
   background-image: var(--select-icon);
   background-repeat: no-repeat;
-  background-position: right 10px center;
-
+  background-position: right 0.875rem center;
   color: var(--ui-fg);
-  font-size: var(--ui-text-base);
-  line-height: 1.5;
+  font-size: var(--ui-text-sm);
+  line-height: 1.4;
   cursor: pointer;
   transition: border-color 120ms ease, box-shadow 120ms ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
   outline: none;
 }
 
 .select:focus-visible {
   border-color: var(--ui-focus);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ui-focus) 20%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ui-focus) 18%, transparent);
 }
 
 .select:disabled {
@@ -32,7 +31,6 @@
   background-color: var(--ui-surface-2);
 }
 
-/* Estado de erro */
 .invalid {
   border-color: var(--ui-negative);
 }
@@ -42,7 +40,6 @@
   box-shadow: 0 0 0 3px var(--ui-negative-surface);
 }
 
-/* Tema escuro: substitui apenas a variável do ícone */
 [data-theme="dark"] .select {
-  --select-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23e5e7eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  --select-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23cdbfb8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
 }
