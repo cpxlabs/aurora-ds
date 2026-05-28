@@ -33,7 +33,16 @@ import {
   Textarea,
 } from "@cpxlabs/aurora-ds";
 
-const diasSemana = ["D", "S", "T", "Q", "Q", "S", "S"];
+const DEMO_SELECTED_DAY = "17";
+const diasSemana = [
+  { id: "dom", label: "D" },
+  { id: "seg", label: "S" },
+  { id: "ter", label: "T" },
+  { id: "qua", label: "Q" },
+  { id: "qui", label: "Q" },
+  { id: "sex", label: "S" },
+  { id: "sab", label: "S" },
+];
 const calendario = ["", "", "", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"];
 const passos = ["Entrada", "Detalhes", "Aprovação"];
 
@@ -126,8 +135,8 @@ export function App() {
                 </div>
               </div>
               <div className="calendar-grid calendar-grid-head">
-                {diasSemana.map((dia, index) => (
-                  <span key={`${dia}-${index}`}>{dia}</span>
+                {diasSemana.map((dia) => (
+                  <span key={dia.id}>{dia.label}</span>
                 ))}
               </div>
               <div className="calendar-grid calendar-grid-body">
@@ -135,7 +144,7 @@ export function App() {
                   <button
                     key={`${dia || 'vazio'}-${index}`}
                     type="button"
-                    className={dia === "17" ? "calendar-day is-selected" : "calendar-day"}
+                    className={dia === DEMO_SELECTED_DAY ? "calendar-day is-selected" : "calendar-day"}
                     disabled={!dia}
                   >
                     {dia}

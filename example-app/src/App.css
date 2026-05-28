@@ -38,7 +38,7 @@ select {
   width: 19rem;
   height: 44rem;
   border-radius: 999px;
-  background: linear-gradient(180deg, #cd3f31 0%, #d64839 100%);
+  background: linear-gradient(180deg, var(--ui-decor-start) 0%, var(--ui-decor-end) 100%);
   opacity: 0.98;
   filter: drop-shadow(0 20px 36px rgba(178, 57, 44, 0.22));
 }
@@ -347,12 +347,12 @@ select {
   height: 0.875rem;
   margin-left: auto;
   border-radius: 999px;
-  background: #fff;
+  background: var(--ui-primary-fg);
 }
 
 .tile.tile-dark {
-  background: #181818;
-  color: #fff6f2;
+  background: var(--ui-dark-surface);
+  color: var(--ui-dark-fg);
 }
 
 .tile-dark-content {

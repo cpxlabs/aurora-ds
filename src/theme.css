@@ -14,6 +14,10 @@
   --ui-overlay: rgba(62, 44, 40, 0.22);
   --ui-shadow: 0 18px 44px rgba(109, 82, 73, 0.14);
   --ui-shadow-sm: 0 10px 24px rgba(109, 82, 73, 0.1);
+  --ui-decor-start: #cd3f31;
+  --ui-decor-end: #d64839;
+  --ui-dark-surface: #181818;
+  --ui-dark-fg: #fff6f2;
 
   --ui-primary: #cb4335;
   --ui-primary-hover: #b9382a;
@@ -63,6 +67,10 @@
   --ui-overlay: rgba(7, 5, 5, 0.56);
   --ui-shadow: 0 22px 50px rgba(0, 0, 0, 0.32);
   --ui-shadow-sm: 0 12px 28px rgba(0, 0, 0, 0.22);
+  --ui-decor-start: #ee6956;
+  --ui-decor-end: #f47b69;
+  --ui-dark-surface: #140f0e;
+  --ui-dark-fg: #fff7f3;
 
   --ui-primary: #ee6956;
   --ui-primary-hover: #f47b69;
