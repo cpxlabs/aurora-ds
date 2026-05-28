@@ -220,8 +220,8 @@ export function App() {
 
           <Card className="tile span-2 compact-card avatar-card">
             <CardContent className="avatar-stack">
-              <Avatar src="https://i.pravatar.cc/80?img=12" alt="Pessoa 1" size="sm" />
-              <Avatar src="https://i.pravatar.cc/80?img=25" alt="Pessoa 2" size="sm" />
+              <Avatar initials="AM" size="sm" />
+              <Avatar initials="LN" size="sm" />
               <Avatar initials="GP" size="sm" />
             </CardContent>
           </Card>
