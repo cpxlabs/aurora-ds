@@ -65,4 +65,17 @@ describe("Tabs", () => {
       "data-disabled"
     );
   });
+
+  it("não troca para uma aba desabilitada", async () => {
+    const user = userEvent.setup();
+    render(<TabsExemplo />);
+
+    await user.click(screen.getByRole("tab", { name: "Aba 3" }));
+
+    expect(screen.getByRole("tab", { name: "Aba 1" })).toHaveAttribute(
+      "aria-selected",
+      "true"
+    );
+    expect(screen.queryByText("Conteúdo da Aba 3")).not.toBeInTheDocument();
+  });
 });

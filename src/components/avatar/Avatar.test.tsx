@@ -16,6 +16,13 @@ describe("Avatar", () => {
     expect(screen.getByText("AB")).toBeInTheDocument();
   });
 
+  it("ignora espaços ao resolver o rótulo acessível e as iniciais visíveis", () => {
+    render(<Avatar initials=" ab " />);
+
+    expect(screen.getByRole("img", { name: "ab" })).toBeInTheDocument();
+    expect(screen.getByText("AB")).toHaveAttribute("aria-hidden", "true");
+  });
+
   it("exibe '?' quando não há imagem nem iniciais", () => {
     render(<Avatar />);
 
@@ -33,6 +40,21 @@ describe("Avatar", () => {
 
     const container = screen.getByRole("img", { name: "Foto de Ana" });
     expect(container).toHaveAttribute("aria-label", "Foto de Ana");
+  });
+
+  it("usa o rótulo padrão quando o alt é vazio", () => {
+    render(<Avatar src="https://example.com/foto.jpg" alt="   " />);
+
+    expect(screen.getByRole("img", { name: "Avatar" })).toBeInTheDocument();
+  });
+
+  it("marca a imagem interna como decorativa", () => {
+    render(<Avatar src="https://example.com/foto.jpg" alt="Foto de João" />);
+
+    expect(screen.getByRole("img", { name: "Foto de João" }).firstElementChild).toHaveAttribute(
+      "aria-hidden",
+      "true"
+    );
   });
 
   it("repassa className extra", () => {

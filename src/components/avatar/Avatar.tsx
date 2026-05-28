@@ -19,12 +19,18 @@ export type AvatarProps = React.HTMLAttributes<HTMLSpanElement> & {
 export const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
   ({ src, alt, initials, size = "md", className, ...props }, ref) => {
     const { avatarFallbackLabel } = useAuroraI18n();
+    const normalizedAlt = alt?.trim();
+    const normalizedInitials = initials?.trim();
+    const fallbackInitials = normalizedInitials
+      ? Array.from(normalizedInitials).slice(0, 2).join("").toUpperCase()
+      : "?";
+    const accessibleLabel = normalizedAlt || normalizedInitials || avatarFallbackLabel;
 
     return (
       <span
         ref={ref}
         role="img"
-        aria-label={alt ?? initials ?? avatarFallbackLabel}
+        aria-label={accessibleLabel}
         className={clsx(
           styles.avatar,
           size === "sm" && styles.sm,
@@ -34,10 +40,10 @@ export const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
         {...props}
       >
         {src ? (
-          <img src={src} alt={alt ?? ""} className={styles.image} aria-hidden="true" />
+          <img src={src} alt={normalizedAlt ?? ""} className={styles.image} aria-hidden="true" />
         ) : (
           <span aria-hidden="true" className={styles.initials}>
-            {initials ? initials.slice(0, 2).toUpperCase() : "?"}
+            {fallbackInitials}
           </span>
         )}
       </span>

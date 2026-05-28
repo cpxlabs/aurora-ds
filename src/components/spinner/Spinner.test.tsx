@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import { Spinner } from "./Spinner";
+import styles from "./Spinner.module.css";
 
 describe("Spinner", () => {
   it("renderiza com role status", () => {
@@ -29,5 +30,17 @@ describe("Spinner", () => {
     render(<Spinner className="minha-classe" />);
 
     expect(screen.getByRole("status")).toHaveClass("minha-classe");
+  });
+
+  it("aplica a classe de tamanho pequena", () => {
+    render(<Spinner size="sm" />);
+
+    expect(screen.getByRole("status")).toHaveClass(styles.sm);
+  });
+
+  it("aplica a classe de tamanho grande", () => {
+    render(<Spinner size="lg" />);
+
+    expect(screen.getByRole("status")).toHaveClass(styles.lg);
   });
 });
