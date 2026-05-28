@@ -74,22 +74,22 @@ function g() {
 //#endregion
 //#region src/components/avatar/Avatar.tsx
 var _ = e.forwardRef(({ src: e, alt: r, initials: i, size: a = "md", className: o, ...s }, c) => {
-	let { avatarFallbackLabel: l } = g();
+	let { avatarFallbackLabel: l } = g(), u = r?.trim(), d = i?.trim(), f = d ? Array.from(d).slice(0, 2).join("").toUpperCase() : "?";
 	return /* @__PURE__ */ n("span", {
 		ref: c,
 		role: "img",
-		"aria-label": r ?? i ?? l,
+		"aria-label": u || d || l,
 		className: t(p.avatar, a === "sm" && p.sm, a === "lg" && p.lg, o),
 		...s,
 		children: e ? /* @__PURE__ */ n("img", {
 			src: e,
-			alt: r ?? "",
+			alt: u ?? "",
 			className: p.image,
 			"aria-hidden": "true"
 		}) : /* @__PURE__ */ n("span", {
 			"aria-hidden": "true",
 			className: p.initials,
-			children: i ? i.slice(0, 2).toUpperCase() : "?"
+			children: f
 		})
 	});
 });
@@ -250,28 +250,28 @@ var ne = o.Trigger, re = o.Close, F = e.forwardRef(({ className: e, children: i,
 	})] });
 });
 F.displayName = "DialogContent";
-var ie = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(o.Title, {
+var I = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(o.Title, {
 	ref: i,
 	...r,
 	className: t(P.title, e)
 }));
-ie.displayName = "DialogTitle";
-var I = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(o.Description, {
+I.displayName = "DialogTitle";
+var L = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(o.Description, {
 	ref: i,
 	...r,
 	className: t(P.description, e)
 }));
-I.displayName = "DialogDescription";
-var L = {
+L.displayName = "DialogDescription";
+var R = {
 	input: "_input_1lca7_1",
 	invalid: "_invalid_1lca7_32"
-}, R = e.forwardRef(({ className: e, invalid: r = !1, ...i }, a) => /* @__PURE__ */ n("input", {
+}, ie = e.forwardRef(({ className: e, invalid: r = !1, ...i }, a) => /* @__PURE__ */ n("input", {
 	ref: a,
 	"aria-invalid": r || void 0,
-	className: t(L.input, r && L.invalid, e),
+	className: t(R.input, r && R.invalid, e),
 	...i
 }));
-R.displayName = "Input";
+ie.displayName = "Input";
 var z = {
 	label: "_label_831v2_1",
 	invalid: "_invalid_831v2_10"
@@ -396,6 +396,6 @@ var se = {
 }));
 ce.displayName = "Textarea";
 //#endregion
-export { u as Alert, f as AlertDescription, d as AlertTitle, ee as AuroraI18nProvider, _ as Avatar, y as Badge, x as Button, C as Card, D as CardAction, j as CardBadge, O as CardContent, E as CardDescription, k as CardFooter, w as CardHeader, A as CardMedia, T as CardTitle, N as Checkbox, te as Dialog, re as DialogClose, F as DialogContent, I as DialogDescription, ie as DialogTitle, ne as DialogTrigger, R as Input, B as Label, H as Progress, W as Select, K as Separator, J as Spinner, X as Switch, ae as Tabs, oe as TabsContent, Q as TabsList, $ as TabsTrigger, ce as Textarea, m as auroraI18nMessages, g as useAuroraI18n };
+export { u as Alert, f as AlertDescription, d as AlertTitle, ee as AuroraI18nProvider, _ as Avatar, y as Badge, x as Button, C as Card, D as CardAction, j as CardBadge, O as CardContent, E as CardDescription, k as CardFooter, w as CardHeader, A as CardMedia, T as CardTitle, N as Checkbox, te as Dialog, re as DialogClose, F as DialogContent, L as DialogDescription, I as DialogTitle, ne as DialogTrigger, ie as Input, B as Label, H as Progress, W as Select, K as Separator, J as Spinner, X as Switch, ae as Tabs, oe as TabsContent, Q as TabsList, $ as TabsTrigger, ce as Textarea, m as auroraI18nMessages, g as useAuroraI18n };
 
 //# sourceMappingURL=index.mjs.map
