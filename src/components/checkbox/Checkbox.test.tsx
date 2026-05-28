@@ -50,6 +50,17 @@ describe("Checkbox", () => {
     expect(checkbox).toHaveAttribute("data-state", "unchecked");
   });
 
+  it("alterna o estado com a tecla espaço", async () => {
+    const user = userEvent.setup();
+    render(<Checkbox aria-label="Teclado" />);
+
+    const checkbox = screen.getByRole("checkbox", { name: "Teclado" });
+    checkbox.focus();
+    await user.keyboard("[Space]");
+
+    expect(checkbox).toHaveAttribute("data-state", "checked");
+  });
+
   it("repassa className extra", () => {
     render(<Checkbox className="minha-classe" aria-label="Checkbox" />);
 

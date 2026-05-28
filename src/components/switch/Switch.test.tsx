@@ -50,6 +50,17 @@ describe("Switch", () => {
     expect(toggle).toHaveAttribute("data-state", "unchecked");
   });
 
+  it("alterna o estado com a tecla espaço", async () => {
+    const user = userEvent.setup();
+    render(<Switch aria-label="Teclado" />);
+
+    const toggle = screen.getByRole("switch", { name: "Teclado" });
+    toggle.focus();
+    await user.keyboard("[Space]");
+
+    expect(toggle).toHaveAttribute("data-state", "checked");
+  });
+
   it("repassa className extra", () => {
     render(<Switch className="minha-classe" aria-label="Switch" />);
 

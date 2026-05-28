@@ -128,8 +128,8 @@ export function ExemploComI18n() {
     <AuroraI18nProvider locale="eng">
       <Dialog open>
         <DialogContent>
-          <DialogTitle>Confirmation</DialogTitle>
-          <DialogDescription>Check the translated close button label.</DialogDescription>
+          <DialogTitle>Confirmação</DialogTitle>
+          <DialogDescription>Verifique o rótulo traduzido do botão de fechar.</DialogDescription>
         </DialogContent>
       </Dialog>
 
