@@ -1,6 +1,7 @@
 # Permite o binário nativo do esbuild durante a instalação para viabilizar o build do Vite.
 packages:
   - 'example-app'
+  - 'template-aurora-ds'
 
 allowBuilds:
   esbuild: true
