@@ -1,69 +1,94 @@
 :root {
   color-scheme: light;
 
-  --ui-bg: #ffffff;
-  --ui-fg: #0f172a;
-  --ui-muted-fg: rgba(15, 23, 42, 0.72);
+  --ui-bg: #f2ece7;
+  --ui-fg: #2f2623;
+  --ui-muted-fg: #7f726b;
 
-  --ui-surface: #ffffff;
-  --ui-surface-2: #f8fafc;
-  --ui-border: rgba(15, 23, 42, 0.14);
+  --ui-surface: #fffdfb;
+  --ui-surface-2: #f7f1ec;
+  --ui-surface-3: #ede3dc;
+  --ui-border: rgba(91, 65, 57, 0.12);
+  --ui-border-strong: rgba(91, 65, 57, 0.22);
 
-  --ui-overlay: rgba(15, 23, 42, 0.6);
-  --ui-shadow: 0 18px 40px rgba(15, 23, 42, 0.14);
+  --ui-overlay: rgba(62, 44, 40, 0.22);
+  --ui-shadow: 0 18px 44px rgba(109, 82, 73, 0.14);
+  --ui-shadow-sm: 0 10px 24px rgba(109, 82, 73, 0.1);
+  --ui-decor-gradient-start: #cd3f31;
+  --ui-decor-gradient-end: #d64839;
+  --ui-dark-surface: #181818;
+  --ui-dark-fg: #fff6f2;
 
-  --ui-primary: #111827;
-  --ui-primary-hover: #0b1220;
-  --ui-primary-fg: #ffffff;
-  --ui-focus: #3b82f6;
+  --ui-primary: #cb4335;
+  --ui-primary-hover: #b9382a;
+  --ui-primary-fg: #fffaf7;
+  --ui-secondary: #6c6664;
+  --ui-secondary-hover: #5c5654;
+  --ui-secondary-fg: #fff7f3;
+  --ui-focus: #df7c73;
 
-  --ui-text-sm: 0.875rem;
-  --ui-text-base: 1rem;
-  --ui-text-xl: 1.5rem;
+  --ui-positive: #2f8a61;
+  --ui-positive-surface: rgba(47, 138, 97, 0.12);
+  --ui-positive-border: rgba(47, 138, 97, 0.22);
 
-  --ui-positive: #15803d;
-  --ui-positive-surface: rgba(21, 128, 61, 0.12);
-  --ui-positive-border: rgba(21, 128, 61, 0.22);
+  --ui-negative: #cb4335;
+  --ui-negative-surface: rgba(203, 67, 53, 0.12);
+  --ui-negative-border: rgba(203, 67, 53, 0.24);
 
-  --ui-negative: #dc2626;
-  --ui-negative-surface: rgba(220, 38, 38, 0.12);
-  --ui-negative-border: rgba(220, 38, 38, 0.22);
+  --ui-warning: #c48b30;
+  --ui-warning-surface: rgba(196, 139, 48, 0.14);
+  --ui-warning-border: rgba(196, 139, 48, 0.24);
 
-  --ui-warning: #a16207;
-  --ui-warning-surface: rgba(161, 98, 7, 0.1);
-  --ui-warning-border: rgba(161, 98, 7, 0.25);
+  --ui-text-xs: 0.75rem;
+  --ui-text-sm: 0.8125rem;
+  --ui-text-base: 0.9375rem;
+  --ui-text-lg: 1.125rem;
+  --ui-text-xl: 1.75rem;
 
-  --ui-radius: 12px;
+  --ui-radius-sm: 12px;
+  --ui-radius: 16px;
+  --ui-radius-lg: 24px;
+  --ui-control-height: 42px;
 }
 
 [data-theme="dark"] {
   color-scheme: dark;
 
-  --ui-bg: #0b1220;
-  --ui-fg: #e5e7eb;
-  --ui-muted-fg: rgba(229, 231, 235, 0.78);
+  --ui-bg: #191414;
+  --ui-fg: #f7f1ec;
+  --ui-muted-fg: #cdbfb8;
 
-  --ui-surface: #0f172a;
-  --ui-surface-2: #111c33;
-  --ui-border: rgba(229, 231, 235, 0.16);
+  --ui-surface: #261f1d;
+  --ui-surface-2: #312927;
+  --ui-surface-3: #3d3331;
+  --ui-border: rgba(255, 241, 234, 0.12);
+  --ui-border-strong: rgba(255, 241, 234, 0.2);
 
-  --ui-overlay: rgba(2, 6, 23, 0.6);
-  --ui-shadow: 0 20px 50px rgba(2, 6, 23, 0.45);
+  --ui-overlay: rgba(7, 5, 5, 0.56);
+  --ui-shadow: 0 22px 50px rgba(0, 0, 0, 0.32);
+  --ui-shadow-sm: 0 12px 28px rgba(0, 0, 0, 0.22);
+  --ui-decor-gradient-start: #ee6956;
+  --ui-decor-gradient-end: #f47b69;
+  --ui-dark-surface: #140f0e;
+  --ui-dark-fg: #fff7f3;
 
-  --ui-primary: #e5e7eb;
-  --ui-primary-hover: #ffffff;
-  --ui-primary-fg: #0b1220;
-  --ui-focus: #60a5fa;
+  --ui-primary: #ee6956;
+  --ui-primary-hover: #f47b69;
+  --ui-primary-fg: #140f0e;
+  --ui-secondary: #544d4b;
+  --ui-secondary-hover: #635a57;
+  --ui-secondary-fg: #fff7f3;
+  --ui-focus: #f2a59a;
 
-  --ui-positive: #86efac;
-  --ui-positive-surface: rgba(134, 239, 172, 0.14);
-  --ui-positive-border: rgba(134, 239, 172, 0.24);
+  --ui-positive: #7cc8a2;
+  --ui-positive-surface: rgba(124, 200, 162, 0.14);
+  --ui-positive-border: rgba(124, 200, 162, 0.22);
 
-  --ui-negative: #fda4af;
-  --ui-negative-surface: rgba(253, 164, 175, 0.14);
-  --ui-negative-border: rgba(253, 164, 175, 0.24);
+  --ui-negative: #ff9b8d;
+  --ui-negative-surface: rgba(255, 155, 141, 0.14);
+  --ui-negative-border: rgba(255, 155, 141, 0.24);
 
-  --ui-warning: #fde047;
-  --ui-warning-surface: rgba(253, 224, 71, 0.12);
-  --ui-warning-border: rgba(253, 224, 71, 0.22);
+  --ui-warning: #f0c172;
+  --ui-warning-surface: rgba(240, 193, 114, 0.16);
+  --ui-warning-border: rgba(240, 193, 114, 0.24);
 }

@@ -3,14 +3,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
-  border: 1px solid var(--ui-border);
-  border-radius: 5px;
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 1px solid var(--ui-border-strong);
+  border-radius: 0.4375rem;
   background: var(--ui-surface);
   cursor: pointer;
   flex-shrink: 0;
-  transition: background-color 120ms ease, border-color 120ms ease;
+  transition: background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
   color: var(--ui-primary-fg);
 }
 
@@ -21,6 +21,7 @@
 .checkbox[data-state="checked"] {
   background: var(--ui-primary);
   border-color: var(--ui-primary);
+  box-shadow: var(--ui-shadow-sm);
 }
 
 .checkbox:focus-visible {

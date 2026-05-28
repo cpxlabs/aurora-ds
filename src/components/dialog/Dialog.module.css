@@ -1,53 +1,55 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: var(--ui-overlay);
+  background: color-mix(in srgb, var(--ui-overlay) 84%, transparent);
+  backdrop-filter: blur(4px);
 }
 
 .content {
   position: fixed;
   left: 50%;
   top: 50%;
-  width: min(92vw, 520px);
+  width: min(92vw, 32rem);
   transform: translate(-50%, -50%);
-
   background: var(--ui-surface);
   color: var(--ui-fg);
   border: 1px solid var(--ui-border);
-  border-radius: calc(var(--ui-radius) + 2px);
-  padding: 16px;
+  border-radius: var(--ui-radius-lg);
+  padding: 1.5rem;
   box-shadow: var(--ui-shadow);
 }
 
 .title {
-  margin: 0 0 8px;
-  font-size: 18px;
-  font-weight: 700;
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
 .description {
-  margin: 0 0 14px;
+  margin: 0;
   color: var(--ui-muted-fg);
+  font-size: var(--ui-text-sm);
+  line-height: 1.6;
 }
 
 .close {
   position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-
+  right: 0.875rem;
+  top: 0.875rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.875rem;
   border: 1px solid var(--ui-border);
-  background: transparent;
+  background: var(--ui-surface-2);
   color: var(--ui-fg);
   cursor: pointer;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 1;
 }
 
 .close:hover {
-  background: var(--ui-surface-2);
+  background: var(--ui-surface-3);
 }
 
 .close:focus-visible {

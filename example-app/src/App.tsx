@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Alert,
   AlertDescription,
@@ -8,12 +7,10 @@ import {
   Button,
   Card,
   CardAction,
-  CardBadge,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
-  CardMedia,
   CardTitle,
   Checkbox,
   Dialog,
@@ -36,362 +33,355 @@ import {
   Textarea,
 } from "@cpxlabs/aurora-ds";
 
-/* ───────────────────────────── dados de exemplo ───────────────────────────── */
-
-const metricas = [
-  { label: "Usuários Ativos", valor: "1.284", tone: "positive" as const, badge: "+12%" },
-  { label: "Receita Mensal", valor: "R$ 48.200", tone: "positive" as const, badge: "+8%" },
-  { label: "Tickets Abertos", valor: "37", tone: "negative" as const, badge: "Atenção" },
-  { label: "Uptime", valor: "99,97%", tone: "neutral" as const, badge: "Estável" },
+const DIA_DEMO_SELECIONADO = "17";
+const diasSemana = [
+  { id: "dom", label: "D" },
+  { id: "seg", label: "S" },
+  { id: "ter", label: "T" },
+  { id: "qua", label: "Q" },
+  { id: "qui", label: "Q" },
+  { id: "sex", label: "S" },
+  { id: "sab", label: "S" },
 ];
-
-const produtos = [
-  {
-    id: 1,
-    nome: "Fone Aurora Pro",
-    descricao: "Fone over-ear com cancelamento de ruído adaptativo e 30 h de bateria.",
-    preco: "799,00",
-    estoque: 12,
-    imagem: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=450&fit=crop",
-  },
-  {
-    id: 2,
-    nome: "Teclado Slim",
-    descricao: "Teclado mecânico compacto com retroiluminação RGB e switches silenciosos.",
-    preco: "349,00",
-    estoque: 0,
-    imagem: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&h=450&fit=crop",
-  },
-  {
-    id: 3,
-    nome: "Mouse Ergonômico",
-    descricao: "Design ergonômico com DPI ajustável de 400 até 16.000.",
-    preco: "249,00",
-    estoque: 5,
-    imagem: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&h=450&fit=crop",
-  },
-];
-
-/* ─────────────────────────────────── App ──────────────────────────────────── */
+const calendario = ["", "", "", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"];
+const passos = ["Entrada", "Detalhes", "Aprovação"];
 
 export function App() {
-  const [tema, setTema] = useState<"light" | "dark">("light");
-  const [statusForm, setStatusForm] = useState<"idle" | "carregando" | "sucesso" | "erro">("idle");
-  const [email, setEmail] = useState("");
-  const [mensagem, setMensagem] = useState("");
-  const [nome, setNome] = useState("");
-
-  function alternarTema() {
-    setTema((t) => (t === "light" ? "dark" : "light"));
-  }
-
-  function handleEnviar(e: React.FormEvent) {
-    e.preventDefault();
-    setStatusForm("carregando");
-    setTimeout(() => {
-      if (email.includes("@") && nome.trim()) {
-        setStatusForm("sucesso");
-      } else {
-        setStatusForm("erro");
-      }
-    }, 1500);
-  }
-
   return (
-    <div data-theme={tema} className="app">
-      {/* ── Cabeçalho ── */}
-      <header className="cabecalho">
-        <div className="cabecalho-inner">
-          <span className="logo">🌅 Aurora DS</span>
-          <Button variant="ghost" onClick={alternarTema}>
-            {tema === "light" ? "🌙 Modo Escuro" : "☀️ Modo Claro"}
-          </Button>
-        </div>
-      </header>
+    <div className="app">
+      <div className="shape shape-left" aria-hidden="true" />
+      <div className="shape shape-right" aria-hidden="true" />
 
-      <main className="principal">
-        {/* ── Métricas ── */}
-        <section>
-          <h2 className="titulo-secao">Painel de Métricas</h2>
-          <div className="grade-4">
-            {metricas.map((m) => (
-              <Card key={m.label}>
-                <CardHeader>
-                  <CardTitle>{m.label}</CardTitle>
-                  <CardAction>
-                    <Badge tone={m.tone}>{m.badge}</Badge>
-                  </CardAction>
-                </CardHeader>
-                <CardContent>
-                  <p className="valor-metrica">{m.valor}</p>
-                </CardContent>
-              </Card>
-            ))}
+      <div className="showcase-frame">
+        <header className="showcase-header">
+          <h1 className="showcase-title">Prévia da biblioteca</h1>
+
+          <div className="showcase-toolbar">
+            <div className="search-field">
+              <span className="search-icon" aria-hidden="true">
+                ⌕
+              </span>
+              <Input aria-label="Buscar componentes" placeholder="Buscar" />
+            </div>
+            <Badge tone="negative">Novo</Badge>
+            <Avatar initials="GP" size="sm" />
+            <span className="toolbar-label">Nome e sobrenome</span>
           </div>
-        </section>
+        </header>
 
-        <Separator />
+        <main className="preview-grid">
+          <Card className="tile span-2 compact-card">
+            <CardContent className="tile-inline">
+              <Checkbox id="tile-check" defaultChecked />
+              <div>
+                <Label htmlFor="tile-check">Rótulo</Label>
+                <p className="tile-copy">Descrição</p>
+              </div>
+            </CardContent>
+          </Card>
 
-        {/* ── Catálogo de Produtos ── */}
-        <section>
-          <h2 className="titulo-secao">Catálogo de Produtos</h2>
-          <div className="grade-3">
-            {produtos.map((p) => (
-              <Card key={p.id}>
-                <CardMedia src={p.imagem} alt={p.nome} />
-                <CardHeader>
-                  <CardTitle>{p.nome}</CardTitle>
-                  <CardDescription>{p.descricao}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="produto-meta">
-                    <CardBadge tone={p.estoque > 0 ? "positive" : "negative"}>
-                      {p.estoque > 0 ? `${p.estoque} em estoque` : "Esgotado"}
-                    </CardBadge>
-                    <span className="produto-preco">R$ {p.preco}</span>
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button variant="ghost">Ver Detalhes</Button>
-                    </DialogTrigger>
-                    <DialogContent>
-                      <DialogTitle>{p.nome}</DialogTitle>
-                      <DialogDescription>{p.descricao}</DialogDescription>
-                      <p className="dialog-body">
-                        Disponível para entrega em todo o Brasil. Garantia de 12 meses contra
-                        defeitos de fabricação. Devolução gratuita em até 7 dias corridos.
-                      </p>
-                      <div className="dialog-acoes">
-                        <Button>Adicionar ao Carrinho</Button>
-                        <DialogClose asChild>
-                          <Button variant="ghost">Fechar</Button>
-                        </DialogClose>
-                      </div>
-                    </DialogContent>
-                  </Dialog>
-                  <Button
-                    className="btn-comprar"
-                    disabled={p.estoque === 0}
+          <Card className="tile span-2 compact-card">
+            <CardContent className="tile-inline">
+              <span className="status-dot status-dot-outline" aria-hidden="true" />
+              <div>
+                <p className="tile-label-strong">Rótulo</p>
+                <p className="tile-copy">Descrição</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="tile span-4 profile-card">
+            <CardContent className="profile-row">
+              <Avatar initials="BP" />
+              <div>
+                <p className="tile-label-strong">Título principal</p>
+                <p className="tile-copy">Texto auxiliar</p>
+              </div>
+              <CardAction className="dots-action" aria-label="Mais opções">
+                ⋮
+              </CardAction>
+            </CardContent>
+          </Card>
+
+          <Card className="tile span-3 storage-card">
+            <CardHeader>
+              <CardDescription>Nuvem</CardDescription>
+              <CardTitle>Uso de armazenamento</CardTitle>
+            </CardHeader>
+            <CardContent className="storage-content">
+              <div className="storage-values">
+                <span>25.5 GB</span>
+                <span>50 GB</span>
+              </div>
+              <Progress value={51} />
+            </CardContent>
+          </Card>
+
+          <Card className="tile span-3 row-3 calendar-card">
+            <CardHeader>
+              <CardDescription>Selecionar data</CardDescription>
+              <CardTitle>Seg, Ago 17</CardTitle>
+            </CardHeader>
+            <CardContent className="calendar-content">
+              <div className="calendar-topline">
+                <span>Agosto 2025</span>
+                <div className="calendar-nav">
+                  <button className="calendar-nav-button" type="button" aria-label="Mês anterior">
+                    ‹
+                  </button>
+                  <button className="calendar-nav-button" type="button" aria-label="Próximo mês">
+                    ›
+                  </button>
+                </div>
+              </div>
+              <div className="calendar-grid calendar-grid-head">
+                {diasSemana.map((dia) => (
+                  <span key={dia.id}>{dia.label}</span>
+                ))}
+              </div>
+              <div className="calendar-grid calendar-grid-body">
+                {calendario.map((dia, index) => (
+                  <button
+                    key={`${dia || 'vazio'}-${index}`}
+                    type="button"
+                    className={dia === DIA_DEMO_SELECIONADO ? "calendar-day is-selected" : "calendar-day"}
+                    disabled={!dia}
                   >
-                    Comprar
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-        </section>
+                    {dia}
+                  </button>
+                ))}
+              </div>
+            </CardContent>
+            <CardFooter className="calendar-footer">
+              <button type="button" className="calendar-link">Fechar</button>
+              <div className="calendar-actions">
+              <button type="button" className="calendar-link">Cancelar</button>
+                <button type="button" className="calendar-link calendar-link-strong">
+                Confirmar
+                </button>
+              </div>
+            </CardFooter>
+          </Card>
 
-        <Separator />
+          <Card className="tile span-2 compact-card metric-card">
+            <CardContent>
+              <div className="metric-value">4,8</div>
+              <div className="stars">★ ★ ★ ★ ☆</div>
+              <p className="tile-copy">1.324 avaliações</p>
+            </CardContent>
+          </Card>
 
-        {/* ── Formulário + Notificações ── */}
-        <section>
-          <h2 className="titulo-secao">Fale Conosco</h2>
-          <div className="layout-form">
-            {/* Formulário de contato */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Envie uma mensagem</CardTitle>
-                <CardDescription>Responderemos em até 24 horas úteis.</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleEnviar} className="form">
-                  <div className="campo">
-                    <Label htmlFor="nome">Nome completo</Label>
-                    <Input
-                      id="nome"
-                      placeholder="Seu nome"
-                      value={nome}
-                      onChange={(e) => setNome(e.target.value)}
-                      invalid={statusForm === "erro" && !nome.trim()}
-                    />
+          <Card className="tile span-2 compact-card">
+            <CardContent className="tile-inline space-between">
+              <div className="switch-pill" aria-hidden="true">
+                <span className="switch-pill-thumb" />
+              </div>
+              <div>
+                <p className="tile-label-strong">Rótulo</p>
+                <p className="tile-copy">Descrição</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="tile span-2 compact-card tile-dark">
+            <CardContent className="tile-dark-content">
+              <span className="dark-badge">＋</span>
+              <p>Título do conteúdo</p>
+            </CardContent>
+          </Card>
+
+          <Card className="tile span-3 compact-card">
+            <CardContent className="topic-row">
+              <div className="topic-icon" aria-hidden="true">
+                ⌘
+              </div>
+              <div>
+                <p className="tile-label-strong">Detalhes do tópico</p>
+                <p className="tile-copy">Esta é uma descrição de exemplo.</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="tile span-3 compact-card action-card">
+            <CardContent className="action-row">
+              <Button>‹</Button>
+              <Button>›</Button>
+              <Button variant="ghost">Botão</Button>
+            </CardContent>
+          </Card>
+
+          <Card className="tile span-3 row-2 form-tile">
+            <CardHeader>
+              <CardTitle>Título principal</CardTitle>
+              <CardDescription>Cole seu texto aqui e use como referência.</CardDescription>
+            </CardHeader>
+            <CardContent className="form-tile-content">
+              <Badge tone="positive">Texto</Badge>
+              <Label htmlFor="email-demo">Campo</Label>
+              <Input id="email-demo" placeholder="Placeholder" />
+              <Label htmlFor="mensagem-demo">Mensagem</Label>
+              <Textarea id="mensagem-demo" placeholder="Escreva um resumo curto..." rows={3} />
+            </CardContent>
+            <CardFooter>
+              <Button className="button-end">Botão</Button>
+            </CardFooter>
+          </Card>
+
+          <Card className="tile span-2 compact-card avatar-card">
+            <CardContent className="avatar-stack">
+              <Avatar initials="AM" size="sm" />
+              <Avatar initials="LN" size="sm" />
+              <Avatar initials="GP" size="sm" />
+            </CardContent>
+          </Card>
+
+          <Card className="tile span-4 row-2 tabs-tile">
+            <CardHeader>
+              <CardDescription>Visão rápida</CardDescription>
+              <CardTitle>Insira um título informativo aqui</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Tabs defaultValue="insights">
+                <TabsList>
+                  <TabsTrigger value="insights">Insights</TabsTrigger>
+                  <TabsTrigger value="status">Status</TabsTrigger>
+                  <TabsTrigger value="config">Config</TabsTrigger>
+                </TabsList>
+                <TabsContent value="insights">
+                  <p className="tile-copy tile-copy-lg">Texto de apoio para este bloco.</p>
+                </TabsContent>
+                <TabsContent value="status">
+                  <div className="tabs-stack">
+                    <Label htmlFor="visao">Filtro</Label>
+                    <Select id="visao" defaultValue="semana">
+                      <option value="semana">Esta semana</option>
+                      <option value="mes">Este mês</option>
+                      <option value="trimestre">Trimestre</option>
+                    </Select>
                   </div>
-                  <div className="campo">
-                    <Label htmlFor="email">E-mail</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="seu@email.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      invalid={statusForm === "erro" && !email.includes("@")}
-                    />
+                </TabsContent>
+                <TabsContent value="config">
+                  <div className="tabs-stack">
+                    <div className="control-row">
+                      <Switch id="modo-compacto" defaultChecked />
+                      <Label htmlFor="modo-compacto">Modo compacto</Label>
+                    </div>
+                    <div className="control-row">
+                      <Checkbox id="resumo-auto" defaultChecked />
+                      <Label htmlFor="resumo-auto">Resumo automático</Label>
+                    </div>
                   </div>
-                  <div className="campo">
-                    <Label htmlFor="mensagem">Mensagem</Label>
-                    <Textarea
-                      id="mensagem"
-                      placeholder="Descreva sua dúvida ou sugestão…"
-                      rows={4}
-                      value={mensagem}
-                      onChange={(e) => setMensagem(e.target.value)}
-                    />
+                </TabsContent>
+              </Tabs>
+            </CardContent>
+          </Card>
+
+          <Card className="tile span-2 compact-card spinner-card">
+            <CardContent className="spinner-row">
+              <Spinner />
+              <Checkbox id="ready-check" />
+            </CardContent>
+          </Card>
+
+          <Card className="tile span-3 compact-card progress-card">
+            <CardContent className="progress-stack">
+              <div>
+                <div className="progress-meta">
+                  <span>32%</span>
+                  <span>✺</span>
+                </div>
+                <Progress value={32} tone="negative" />
+              </div>
+              <div>
+                <div className="progress-meta scale-meta">
+                  <span>FRACA</span>
+                  <span>MÉDIA</span>
+                  <span>FORTE</span>
+                </div>
+                <Progress value={74} tone="positive" />
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="tile span-2 compact-card tags-card">
+            <CardContent className="tag-row">
+              <Badge tone="positive">Tag</Badge>
+              <Badge tone="warning">Filtro</Badge>
+              <Badge>+4</Badge>
+            </CardContent>
+          </Card>
+
+          <Card className="tile span-3 compact-card steps-card">
+            <CardContent>
+              <div className="steps-row" aria-label="Progresso em etapas">
+                {passos.map((passo, index) => (
+                  <div key={passo} className="step-item">
+                    <span className={index < 2 ? "step-dot is-done" : "step-dot is-current"}>{index + 1}</span>
+                    {index < passos.length - 1 ? <span className="step-line" aria-hidden="true" /> : null}
                   </div>
+                ))}
+              </div>
+              <p className="tile-label-strong step-copy">Descrição da etapa</p>
+            </CardContent>
+          </Card>
 
-                  {statusForm === "sucesso" && (
-                    <Alert tone="positive">
-                      <AlertTitle>Mensagem enviada!</AlertTitle>
-                      <AlertDescription>
-                        Obrigado pelo contato. Retornaremos em breve.
-                      </AlertDescription>
-                    </Alert>
-                  )}
-                  {statusForm === "erro" && (
-                    <Alert tone="negative">
-                      <AlertTitle>Erro ao enviar</AlertTitle>
-                      <AlertDescription>
-                        Preencha nome e e-mail válidos antes de enviar.
-                      </AlertDescription>
-                    </Alert>
-                  )}
-
-                  <Button type="submit" disabled={statusForm === "carregando"}>
-                    {statusForm === "carregando" ? (
-                      <span className="btn-carregando">
-                        <Spinner size="sm" label="Enviando" />
-                        Enviando…
-                      </span>
-                    ) : (
-                      "Enviar mensagem"
-                    )}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-
-            {/* Notificações do sistema */}
-            <div className="coluna-alertas">
-              <h3 className="titulo-subsecao">Notificações do Sistema</h3>
-              <Alert tone="positive">
-                <AlertTitle>Deploy realizado com sucesso</AlertTitle>
-                <AlertDescription>Versão 2.4.1 disponível em produção.</AlertDescription>
-              </Alert>
-              <Alert tone="warning">
-                <AlertTitle>Alta utilização de CPU</AlertTitle>
-                <AlertDescription>O servidor atingiu 78% de utilização.</AlertDescription>
-              </Alert>
-              <Alert tone="negative">
-                <AlertTitle>Falha na integração</AlertTitle>
-                <AlertDescription>A API de pagamentos retornou erro 503.</AlertDescription>
-              </Alert>
+          <Card className="tile span-4 row-2 alert-card">
+            <CardHeader>
+              <CardTitle>Insira um título informativo aqui</CardTitle>
+              <CardAction>
+                <button type="button" className="plus-button" aria-label="Expandir">
+                  +
+                </button>
+              </CardAction>
+            </CardHeader>
+            <CardContent className="alerts-stack">
               <Alert>
-                <AlertTitle>Manutenção programada</AlertTitle>
+                <AlertTitle>Adicione o título do alerta aqui!</AlertTitle>
                 <AlertDescription>
-                  Janela de manutenção: domingo das 02:00 às 04:00.
+                  Este alerta fica melhor quando usa duas linhas de texto para contextualizar.
                 </AlertDescription>
               </Alert>
-            </div>
-          </div>
-        </section>
+              <Separator />
+              <div className="alert-actions-row">
+                <Button variant="ghost">Botão</Button>
+                <Badge tone="warning">Secundário</Badge>
+              </div>
+            </CardContent>
+          </Card>
 
-        <Separator />
-
-        {/* ── Controles avançados ── */}
-        <section>
-          <h2 className="titulo-secao">Controles Avançados</h2>
-          <div className="layout-avancado">
-            <Card>
-              <CardHeader>
-                <CardTitle>Preferências da Conta</CardTitle>
-                <CardDescription>
-                  Exemplo com Select, Switch, Checkbox e Label.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Tabs defaultValue="perfil">
-                  <TabsList>
-                    <TabsTrigger value="perfil">Perfil</TabsTrigger>
-                    <TabsTrigger value="seguranca">Segurança</TabsTrigger>
-                    <TabsTrigger value="notificacoes">Notificações</TabsTrigger>
-                  </TabsList>
-
-                  <TabsContent value="perfil">
-                    <div className="stack-campos">
-                      <div className="campo">
-                        <Label htmlFor="plano">Plano atual</Label>
-                        <Select id="plano" defaultValue="pro">
-                          <option value="free">Free</option>
-                          <option value="pro">Pro</option>
-                          <option value="enterprise">Enterprise</option>
-                        </Select>
-                      </div>
-                      <div className="linha-controle">
-                        <Switch id="publico" defaultChecked />
-                        <Label htmlFor="publico">Perfil público</Label>
-                      </div>
-                    </div>
-                  </TabsContent>
-
-                  <TabsContent value="seguranca">
-                    <div className="stack-campos">
-                      <div className="linha-controle">
-                        <Checkbox id="2fa" defaultChecked />
-                        <Label htmlFor="2fa">Autenticação em dois fatores</Label>
-                      </div>
-                      <div className="linha-controle">
-                        <Checkbox id="sessao" />
-                        <Label htmlFor="sessao">Encerrar sessões antigas</Label>
-                      </div>
-                    </div>
-                  </TabsContent>
-
-                  <TabsContent value="notificacoes">
-                    <div className="stack-campos">
-                      <div className="linha-controle">
-                        <Switch id="notif-email" defaultChecked />
-                        <Label htmlFor="notif-email">Receber resumo semanal por e-mail</Label>
-                      </div>
-                      <div className="linha-controle">
-                        <Switch id="push" />
-                        <Label htmlFor="push">Ativar notificações push</Label>
-                      </div>
-                    </div>
-                  </TabsContent>
-                </Tabs>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Status da Equipe</CardTitle>
-                <CardDescription>
-                  Exemplo com Avatar e Progress para monitoramento rápido.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="stack-campos">
-                  <div className="equipe">
-                    <Avatar initials="AM" />
-                    <Avatar initials="BR" />
-                    <Avatar initials="CP" />
-                    <Avatar src="https://i.pravatar.cc/100?img=20" alt="Foto da Marina" />
+          <Card className="tile span-3 row-2 modal-card">
+            <CardHeader>
+              <CardTitle>Título do modal</CardTitle>
+            </CardHeader>
+            <CardContent className="modal-card-content">
+              <span className="modal-icon" aria-hidden="true">
+                ⓘ
+              </span>
+              <p className="tile-copy tile-copy-lg">Descrição do conteúdo</p>
+            </CardContent>
+            <CardFooter className="modal-card-footer">
+              <Button variant="ghost">Secundário</Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button>Primário</Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogTitle>Título do modal</DialogTitle>
+                  <DialogDescription>
+                    Content description com hierarquia inspirada na referência da biblioteca.
+                  </DialogDescription>
+                  <div className="dialog-demo-actions">
+                    <DialogClose asChild>
+                      <Button variant="ghost">Cancelar</Button>
+                    </DialogClose>
+                    <Button>Confirmar</Button>
                   </div>
-
-                  <div className="stack-campos">
-                    <div>
-                      <p className="label-progresso">Checklist de lançamento</p>
-                      <Progress value={78} tone="positive" label="Lançamento 78%" />
-                    </div>
-                    <div>
-                      <p className="label-progresso">Correções críticas</p>
-                      <Progress value={32} tone="warning" label="Correções críticas 32%" />
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-      </main>
-
-      {/* ── Rodapé ── */}
-      <footer className="rodape">
-        <p>
-          Aurora DS · Biblioteca de componentes React &nbsp;
-          <Badge size="sm">v1.0.0</Badge>
-        </p>
-      </footer>
+                </DialogContent>
+              </Dialog>
+            </CardFooter>
+          </Card>
+        </main>
+      </div>
     </div>
   );
 }
