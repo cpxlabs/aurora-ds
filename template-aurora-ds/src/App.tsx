@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, type FormEvent } from "react";
 import {
   Avatar,
   Badge,
@@ -71,7 +71,7 @@ function App() {
     setConfirmacaoSenha("");
   };
 
-  const handleEntrar = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleEntrar = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!profile.nome.trim() || !profile.email.trim() || !senha.trim()) {
       setMensagem("Preencha nome, e-mail e senha para continuar.");
@@ -83,7 +83,7 @@ function App() {
     resetSenha();
   };
 
-  const handleCadastrar = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleCadastrar = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!profile.nome.trim() || !profile.email.trim() || !senha.trim()) {
       setMensagem("Preencha todos os campos obrigatórios para criar a conta.");
@@ -99,7 +99,7 @@ function App() {
     resetSenha();
   };
 
-  const handleSalvarPerfil = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSalvarPerfil = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setMensagem("Perfil atualizado com sucesso.");
   };

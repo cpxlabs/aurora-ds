@@ -11,14 +11,14 @@ App base para novos produtos com Aurora DS.
 ## Rodar localmente
 
 ```bash
-corepack pnpm install
-corepack pnpm --dir template-aurora-ds dev
+pnpm install
+pnpm --dir template-aurora-ds dev
 ```
 
 ## Build
 
 ```bash
-corepack pnpm --dir template-aurora-ds build
+pnpm --dir template-aurora-ds build
 ```
 
 ## Deploy na Vercel

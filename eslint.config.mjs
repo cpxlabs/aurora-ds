@@ -11,6 +11,7 @@ export default tseslint.config(
       "node_modules/**",
       "src/**/*.mdx",
       "src/vite-env.d.ts",
+      "template-aurora-ds/**",
     ],
   },
   {
