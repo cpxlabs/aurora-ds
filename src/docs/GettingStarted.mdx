@@ -29,6 +29,7 @@ Se você quiser expor apenas os estilos de tema, a entrada `@cpxlabs/aurora-ds/t
 ### i18n
 
 Use `AuroraI18nProvider` para traduzir os textos internos padrão dos componentes para `pt_br`, `es` ou `eng`.
+Quando usar `messages` para sobrescrever textos, prefira memorizar o objeto no componente pai para evitar re-renderizações desnecessárias.
 
 ```tsx
 import { AuroraI18nProvider, Dialog, DialogContent, DialogTitle } from "@cpxlabs/aurora-ds";

@@ -141,14 +141,22 @@ export function ExemploComI18n() {
 
 Você também pode sobrescrever mensagens específicas:
 
+> Para evitar re-renderizações desnecessárias dos componentes consumidores de i18n, prefira memorizar o objeto de `messages` quando ele for definido no componente pai.
+
 ```tsx
+import { useMemo } from "react";
 import { AuroraI18nProvider, Progress } from "@cpxlabs/aurora-ds";
 
 export function Upload() {
+  const messages = useMemo(
+    () => ({ progressLabel: "Progresso do upload" }),
+    []
+  );
+
   return (
     <AuroraI18nProvider
       locale="pt_br"
-      messages={{ progressLabel: "Progresso do upload" }}
+      messages={messages}
     >
       <Progress value={48} />
     </AuroraI18nProvider>
