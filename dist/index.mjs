@@ -107,8 +107,8 @@ var v = {
 }));
 y.displayName = "Badge";
 var b = {
-	button: "_button_1olep_1",
-	ghost: "_ghost_1olep_42"
+	button: "_button_og9eb_1",
+	ghost: "_ghost_og9eb_42"
 }, x = e.forwardRef(({ className: e, type: r = "button", variant: a = "solid", asChild: o = !1, ...s }, c) => /* @__PURE__ */ n(o ? i : "button", {
 	ref: c,
 	...!o && { type: r },
@@ -273,8 +273,8 @@ var R = {
 }));
 ie.displayName = "Input";
 var z = {
-	label: "_label_48b94_1",
-	invalid: "_invalid_48b94_11"
+	label: "_label_1wnnd_1",
+	invalid: "_invalid_1wnnd_11"
 }, B = e.forwardRef(({ className: e, invalid: r = !1, ...i }, a) => /* @__PURE__ */ n("label", {
 	ref: a,
 	className: t(z.label, r && z.invalid, e),
@@ -348,8 +348,8 @@ var q = {
 });
 J.displayName = "Spinner";
 var Y = {
-	switch: "_switch_1wh7a_1",
-	thumb: "_thumb_1wh7a_35"
+	switch: "_switch_18q69_1",
+	thumb: "_thumb_18q69_35"
 }, X = e.forwardRef(({ className: e, ...r }, i) => /* @__PURE__ */ n(s.Root, {
 	ref: i,
 	className: t(Y.switch, e),
