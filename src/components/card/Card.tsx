@@ -68,9 +68,10 @@ export const CardFooter = React.forwardRef<
 ));
 CardFooter.displayName = "CardFooter";
 
-export type CardMediaProps = Omit<React.ImgHTMLAttributes<HTMLImageElement>, "className"> & {
+export type CardMediaProps = Omit<React.ImgHTMLAttributes<HTMLImageElement>, "className" | "alt"> & {
     className?: string;
     imageClassName?: string;
+    alt: string;
 };
 
 export const CardMedia = React.forwardRef<HTMLDivElement, CardMediaProps>(
