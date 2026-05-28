@@ -38,7 +38,11 @@ select {
   width: 19rem;
   height: 44rem;
   border-radius: 999px;
-  background: linear-gradient(180deg, var(--ui-decor-start) 0%, var(--ui-decor-end) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--ui-decor-gradient-start) 0%,
+    var(--ui-decor-gradient-end) 100%
+  );
   opacity: 0.98;
   filter: drop-shadow(0 20px 36px rgba(178, 57, 44, 0.22));
 }
