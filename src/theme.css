@@ -18,6 +18,9 @@
   --ui-primary: #cb4335;
   --ui-primary-hover: #b9382a;
   --ui-primary-fg: #fffaf7;
+  --ui-secondary: #6c6664;
+  --ui-secondary-hover: #5c5654;
+  --ui-secondary-fg: #fff7f3;
   --ui-focus: #df7c73;
 
   --ui-positive: #2f8a61;
@@ -64,6 +67,9 @@
   --ui-primary: #ee6956;
   --ui-primary-hover: #f47b69;
   --ui-primary-fg: #140f0e;
+  --ui-secondary: #544d4b;
+  --ui-secondary-hover: #635a57;
+  --ui-secondary-fg: #fff7f3;
   --ui-focus: #f2a59a;
 
   --ui-positive: #7cc8a2;

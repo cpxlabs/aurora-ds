@@ -41,11 +41,11 @@
 
 .ghost {
   border-color: var(--ui-border);
-  background: #6c6664;
-  color: #fff7f3;
+  background: var(--ui-secondary);
+  color: var(--ui-secondary-fg);
   box-shadow: none;
 }
 
 .ghost:hover {
-  background: #5c5654;
+  background: var(--ui-secondary-hover);
 }

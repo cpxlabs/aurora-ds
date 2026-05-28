@@ -350,8 +350,8 @@ select {
   background: #fff;
 }
 
-.tile-dark {
-  background: #181818 !important;
+.tile.tile-dark {
+  background: #181818;
   color: #fff6f2;
 }
 
