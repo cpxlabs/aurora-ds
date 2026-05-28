@@ -33,7 +33,7 @@ import {
   Textarea,
 } from "@cpxlabs/aurora-ds";
 
-const DEMO_SELECTED_DAY = "17";
+const DIA_DEMO_SELECIONADO = "17";
 const diasSemana = [
   { id: "dom", label: "D" },
   { id: "seg", label: "S" },
@@ -144,7 +144,7 @@ export function App() {
                   <button
                     key={`${dia || 'vazio'}-${index}`}
                     type="button"
-                    className={dia === DEMO_SELECTED_DAY ? "calendar-day is-selected" : "calendar-day"}
+                    className={dia === DIA_DEMO_SELECIONADO ? "calendar-day is-selected" : "calendar-day"}
                     disabled={!dia}
                   >
                     {dia}
