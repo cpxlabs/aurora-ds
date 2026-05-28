@@ -1,22 +1,9 @@
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
-import dts from "vite-plugin-dts";
 import { resolve } from "node:path";
 
 export default defineConfig({
-  plugins: [
-    react(),
-    dts({
-      insertTypesEntry: true,
-      include: ["src/"],
-      exclude: [
-        "src/**/*.stories.tsx",
-        "src/**/*.test.tsx",
-        "src/docs/**",
-        "src/test/**",
-      ],
-    }),
-  ],
+  plugins: [react()],
   test: {
     environment: "jsdom",
     globals: true,
