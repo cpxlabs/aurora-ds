@@ -70,7 +70,10 @@ export function Acesso() {
       </CardHeader>
       <CardContent>
         {erro ? <p className="form-erro">{erro}</p> : null}
-        <Tabs value={authMode} onValueChange={(value) => { setAuthMode(value as AuthMode); setErro(""); }}>
+        <Tabs value={authMode} onValueChange={(value) => {
+          setAuthMode(value as AuthMode);
+          setErro("");
+        }}>
           <TabsList>
             <TabsTrigger value="login">Login</TabsTrigger>
             <TabsTrigger value="register">Cadastro</TabsTrigger>
