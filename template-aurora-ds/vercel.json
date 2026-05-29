@@ -1,0 +1,7 @@
+{
+  "framework": "vite",
+  "installCommand": "corepack enable && pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm --dir template-aurora-ds build",
+  "outputDirectory": "template-aurora-ds/dist",
+  "rewrites": [{ "source": "/((?!assets/).*)", "destination": "/index.html" }]
+}
