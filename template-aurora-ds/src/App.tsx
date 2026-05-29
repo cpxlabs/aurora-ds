@@ -4,7 +4,7 @@ import { Acesso } from "./pages/Acesso";
 import { Dashboard } from "./pages/Dashboard";
 import { Perfil } from "./pages/Perfil";
 import { Configuracoes } from "./pages/Configuracoes";
-import { useAuth } from "./context/AuthContext";
+import { useAuth } from "./context/useAuth";
 import "./App.css";
 
 function RotaProtegida({ children }: { children: React.ReactNode }) {

@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { Avatar, Badge, Button } from "@cpxlabs/aurora-ds";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/useAuth";
 
 const MENU = [
   { to: "/dashboard", label: "Dashboard" },

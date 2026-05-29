@@ -12,7 +12,8 @@ import {
   Select,
   Textarea,
 } from "@cpxlabs/aurora-ds";
-import { useAuth, type UserProfile } from "../context/AuthContext";
+import { type UserProfile } from "../context/authContextInstance";
+import { useAuth } from "../context/useAuth";
 import { useState } from "react";
 
 export function Perfil() {

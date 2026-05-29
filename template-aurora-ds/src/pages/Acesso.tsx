@@ -15,7 +15,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@cpxlabs/aurora-ds";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/useAuth";
 
 type AuthMode = "login" | "register";
 

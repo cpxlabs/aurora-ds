@@ -7,7 +7,7 @@ import {
   CardTitle,
   Separator,
 } from "@cpxlabs/aurora-ds";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/useAuth";
 
 export function Dashboard() {
   const { profile, autenticado } = useAuth();

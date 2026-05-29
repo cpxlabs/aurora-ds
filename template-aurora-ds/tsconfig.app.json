@@ -19,7 +19,15 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Path aliases (espelha vite.config.ts) */
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "paths": {
+      "@cpxlabs/aurora-ds": ["../src/index.ts"],
+      "@aurora-ds-theme": ["../src/theme.css"]
+    }
   },
   "include": ["src"]
 }

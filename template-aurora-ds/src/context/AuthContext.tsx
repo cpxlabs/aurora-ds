@@ -1,19 +1,5 @@
-import { createContext, useCallback, useContext, useMemo, useState } from "react";
-
-export type UserProfile = {
-  nome: string;
-  email: string;
-  cargo: string;
-  bio: string;
-};
-
-type AuthContextValue = {
-  profile: UserProfile;
-  autenticado: boolean;
-  login: (dados: Pick<UserProfile, "nome" | "email">) => void;
-  atualizar: (dados: UserProfile) => void;
-  sair: () => void;
-};
+import { useCallback, useMemo, useState } from "react";
+import { AuthContext, type UserProfile } from "./authContextInstance";
 
 const PERFIL_BASE: UserProfile = {
   nome: "",
@@ -21,8 +7,6 @@ const PERFIL_BASE: UserProfile = {
   cargo: "produto",
   bio: "",
 };
-
-const AuthContext = createContext<AuthContextValue | null>(null);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [profile, setProfile] = useState<UserProfile>(PERFIL_BASE);
@@ -49,10 +33,3 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
-export function useAuth(): AuthContextValue {
-  const ctx = useContext(AuthContext);
-  if (!ctx) {
-    throw new Error("useAuth deve ser usado dentro de AuthProvider");
-  }
-  return ctx;
-}
