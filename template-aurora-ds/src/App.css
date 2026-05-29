@@ -44,6 +44,7 @@
 }
 
 .menu-item {
+  display: block;
   border: 1px solid var(--aurora-border-default);
   background: transparent;
   border-radius: 12px;
@@ -51,6 +52,8 @@
   text-align: left;
   color: inherit;
   cursor: pointer;
+  text-decoration: none;
+  font-size: inherit;
 }
 
 .menu-item.is-active {
@@ -101,12 +104,14 @@
 .message-card,
 .auth-card,
 .profile-card,
+.config-card,
 .structure-card {
   grid-column: span 12;
 }
 
 .auth-card,
-.profile-card {
+.profile-card,
+.config-card {
   grid-column: span 8;
 }
 
@@ -124,6 +129,18 @@
   margin-top: 4px;
 }
 
+.form-erro {
+  margin: 0 0 8px;
+  color: var(--aurora-fg-negative, #dc2626);
+  font-size: 14px;
+}
+
+.form-sucesso {
+  margin: 0 0 8px;
+  color: var(--aurora-fg-positive, #16a34a);
+  font-size: 14px;
+}
+
 .checklist {
   margin: 0;
   padding-left: 18px;
@@ -135,9 +152,20 @@
   margin: 16px 0;
 }
 
-.section-preview {
-  margin: 0;
-  color: var(--aurora-fg-muted);
+.status-row {
+  display: flex;
+  gap: 8px;
+}
+
+.config-content {
+  display: grid;
+  gap: 12px;
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 @media (max-width: 1024px) {
@@ -152,6 +180,7 @@
 
   .auth-card,
   .profile-card,
+  .config-card,
   .structure-card {
     grid-column: span 12;
   }
@@ -161,3 +190,4 @@
     align-items: flex-start;
   }
 }
+
